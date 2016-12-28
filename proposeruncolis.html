@@ -2,36 +2,46 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>autocompletion</title>
+	<title>proposeruncolis</title>
   <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css"> 
+  <link rel="stylesheet" href="semantic-calendar/dist/calendar.min.css" />
 </head>
 <h1>Publier votre trajet </h1>
 <body>
-<form class="ui form">
-</div>
-<div class="ui search aeroport">
-  <div class="ui icon input">
-    <input class="prompt" type="text" placeholder="Lieu de départ">
-    <i class="search icon"></i>
+  <div class="ui calendar" id="example1">
+      <div class="ui input left icon">
+        <i class="calendar icon"></i>
+        <input type="text" placeholder="Date/Time">
+      </div>
+    </div>
+    <br/>
+  <form class="ui form">
   </div>
-  <div class="results"></div>
-</div>
-
-
-
-</div>
-<div class="ui search">
-  <div class="ui icon input">
-    <input class="prompt" type="text" placeholder="Lieu d'arrivée">
-    <i class="search icon"></i>
+  <div class="ui search aeroport">
+    <div class="ui icon input">
+      <input class="prompt" type="text" placeholder="Lieu de départ">
+      <i class="search icon"></i>
+    </div>
+    <div class="results"></div>
   </div>
-  <div class="results"></div>
-</div>
 
 
- <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
- <script src="semantic/semantic.min.js"></script>
- <script>
+
+  </div>
+  <div class="ui search">
+    <div class="ui icon input">
+      <input class="prompt" type="text" placeholder="Lieu d'arrivée">
+      <i class="search icon"></i>
+    </div>
+    <div class="results"></div>
+  </div>
+
+
+   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+   <script src="semantic/semantic.min.js"></script>
+   <script type="text/javascript" src="semantic-calendar/dist/calendar.min.js"></script>
+   <script>$('#example1').calendar();</script>
+   <script>
 
 var content = [
   { title: 'Abuja (Nigeria)' },
@@ -113,53 +123,57 @@ $('.ui.search.aeroport')
     source: contentbis
   });
 </script>
-
-<div class="ui form">
-  <div class="grouped fields">
+<br><br>
+<div class="ui form trajet">
+  <div class="grouped fields trajet">
     <label>Fréquence</label>
     <div class="field">
-      <div class="ui radio checkbox">
-        <input type="radio" name="example2" checked="checked">
+      <div class="ui radio checkbox trajet">
+        <input type="radio" name="example1" checked="checked">
         <label>Je fais le trajet une fois </label>
       </div>
     </div>
     <div class="field">
-      <div class="ui radio checkbox">
-        <input type="radio" name="example2">
+      <div class="ui radio checkbox trajet">
+        <input type="radio" name="example1">
         <label>Je fais le trajet régulièrement</label>
       </div>
+    </div>
+  </div>
+</div>
+<br><br>
 
 
 
-<div class="ui form">
-  <div class="grouped fields">
+<div class="ui form kilos">
+  <div class="grouped fields kilos">
     <label>Quelle capacité pouvez-vous transporter ?</label>
     <div class="field">
-      <div class="ui radio checkbox">
+      <div class="ui radio checkbox kilos">
         <input type="radio" name="example2" checked="checked">
         <label>Entre 0 et 3 kilos</label>
       </div>
     </div>
     <div class="field">
-      <div class="ui radio checkbox">
+      <div class="ui radio checkbox kilos">
         <input type="radio" name="example2">
         <label>Entre 3 et 6 kilos</label>
       </div>
     </div>
     <div class="field">
-      <div class="ui radio checkbox">
+      <div class="ui radio checkbox kilos">
         <input type="radio" name="example2">
         <label>Entre 6 et 10 kilos</label>
       </div>
     </div>
     <div class="field">
-      <div class="ui radio checkbox">
+      <div class="ui radio checkbox kilos">
         <input type="radio" name="example2">
         <label>Entre 10 et 15 kilos</label>
       </div>
        </div>
     <div class="field">
-      <div class="ui radio checkbox">
+      <div class="ui radio checkbox kilos">
         <input type="radio" name="example2">
         <label>Entre 15 et 20 kilos</label>
       </div>
