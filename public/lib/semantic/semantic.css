@@ -6,6 +6,7 @@
  * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
+
  *
  */
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin');
@@ -4802,7 +4803,8 @@ input::selection {
             Divider
 *******************************/
 
-.ui.divider {
+.ui
+ider {
   margin: 1rem 0rem;
   line-height: 1;
   height: 0em;
@@ -17944,6 +17946,7 @@ ol.ui.horizontal.list li:before,
 .ui.form .grouped.fields {
   display: block;
   margin: 0em 0em 1em;
+  
 }
 
 .ui.form .grouped.fields:last-child {
