@@ -2,6 +2,7 @@
 session_start();
 include "lib/connexion.php";
 
+
 if( isset($_POST['connexion']) ) {
   $query = $dbh->prepare("SELECT * FROM utilisateurs WHERE login = :login AND password = :password");
   $query->bindValue('login', $_POST['login'], PDO::PARAM_STR);
@@ -13,14 +14,17 @@ if( isset($_POST['connexion']) ) {
     $utilisateur = $query->fetch();
     $_SESSION['utilisateur']['nom'] = $utilisateur['nom'];
     $_SESSION['utilisateur']['prenom'] = $utilisateur['prenom'];
+    $_SESSION['utilisateur']['civilite'] = $utilisateur['civilite'];
+    $_SESSION['utilisateur']['telephone'] = $utilisateur['telephone'];
+    $_SESSION['utilisateur']['email'] = $utilisateur['email'];
+
     header('location: tableaudebord.php');
-  }
+  
+ }
 }
 
 
- ?>
-
-
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,7 +91,7 @@ if( isset($_POST['connexion']) ) {
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="email" placeholder="Login">
+            <input type="text" name="login" placeholder="Login">
           </div>
         </div>
         <div class="field">
@@ -97,7 +101,7 @@ if( isset($_POST['connexion']) ) {
           </div>
         </div>
         <div class="ui fluid large teal submit button">
-          <input type="submit" name="connexion" value="">
+          <input type="submit" name="connexion" value="Connexion">
         </div>
       </div>
 
@@ -108,7 +112,7 @@ if( isset($_POST['connexion']) ) {
 </div>
 
 </body>
-
+  <footer>
  <div class="ui inverted vertical footer segment">
     <div class="ui container">
       <div class="ui stackable inverted divided equal height stackable grid">
@@ -129,5 +133,5 @@ if( isset($_POST['connexion']) ) {
     </div>
   </div>
 </div>
-
+</footer>
 </html>

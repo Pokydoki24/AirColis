@@ -45,8 +45,15 @@ if( !isset($_SESSION['utilisateur']) ) {
 	<title>Tableaudebord</title>
 </head>
 <body>
-
-      <div class="header"><?= $_SESSION['utilisateur']['civilité'] ?> <?= $_SESSION['utilisateur']['nom'] ?><?= $_SESSION['utilisateur']['prenom'] ?>  </div>
+        <!-- <?php
+        // echo "<pre>";
+        //   print_r($_SESSION);
+        // echo "</pre>";
+         ?> -->
+      <div class="header">
+          <?= $_SESSION['utilisateur']['civilite'] ?> 
+          <?= $_SESSION['utilisateur']['nom'] ?> 
+          <?= $_SESSION['utilisateur']['prenom'] ?>  </div>
       <div class="meta">
         <a><?= $_SESSION['utilisateur']['telephone'] ?> </a>
       </div>

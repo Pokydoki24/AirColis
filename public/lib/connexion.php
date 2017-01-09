@@ -11,7 +11,10 @@ try {
 	$user = "";
 	$password = "";
 
-	$dbh = new PDO('mysql:host=localhost;dbname=aircolis', 'root','', $db_options);
+	$dbh = new PDO('mysql:host=localhost;dbname=aircolis', '','', $db_options);
 } catch(Exception $e) {
 	die('Erreur MySQL : ' . $e->getMessage());
 }
+
+
+
