@@ -8,10 +8,10 @@ try {
 	);
 
 	$db = "aircolis";
-	$user = "";
-	$password = "";
+	$user = "root";
+	$password = "root";
 
-	$dbh = new PDO('mysql:host=localhost;dbname=aircolis', '','', $db_options);
+	$dbh = new PDO('mysql:host=localhost;dbname=aircolis', 'root','root', $db_options);
 } catch(Exception $e) {
 	die('Erreur MySQL : ' . $e->getMessage());
 }

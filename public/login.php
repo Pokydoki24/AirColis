@@ -1,7 +1,6 @@
-<?php 
+<?php
 session_start();
 include "lib/connexion.php";
-
 
 if( isset($_POST['connexion']) ) {
   $query = $dbh->prepare("SELECT * FROM utilisateurs WHERE login = :login AND password = :password");
@@ -17,47 +16,83 @@ if( isset($_POST['connexion']) ) {
     $_SESSION['utilisateur']['civilite'] = $utilisateur['civilite'];
     $_SESSION['utilisateur']['telephone'] = $utilisateur['telephone'];
     $_SESSION['utilisateur']['email'] = $utilisateur['email'];
-
     header('location: tableaudebord.php');
-  
- }
+  }
 }
 
-
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>offre</title>
-  <link rel="stylesheet" type="text/css" href="lib/semantic/semantic.min.css"> 
-  <link rel="stylesheet" href="lib/semantic-calendar/dist/calendar.min.css" />
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Site Properties -->
+  <title>Homepage - Semantic</title>
+  
+  <link rel="stylesheet" type="text/css" href="lib/semantic/semantic.css">
+
+ <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+  <script src="lib/semantic/semantic.js"></script>
+
+  
+  <script>
+  $(document)
+    .ready(function() {
+
+      // fix menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+  </script>
  
+<script src="lib/semantic/semantic.min.js"></script>
 </head>
+<body>
 
+<!-- Page Contents -->
+<div class="pusher">
+  <div class="ui inverted vertical masthead center aligned segment">
 
-
-    <body>
-    <!-- Page Contents -->
-
-  <div class="ui inverted vertical  center aligned segment">
-
-    
+    <div class="ui container">
       <div class="ui large secondary inverted pointing menu">
-          <a class="toc item">
-            <i class="sidebar icon"></i>
-          </a>
-          <a class="active item">AirColis</a>
-          <a class="item">Comment ca marche?</a>
-          <a class="item">Expedier</a>
-          <a class="item">Transporter</a>
-          <a class="item">Voir les annonces</a>
-          <div class="right item">
-            <a class="ui inverted button">Inscription</a>
-            <a class="ui inverted button">Connexion</a>
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="active item">AirColis</a>
+        <a class="item">Comment ca marche?</a>
+        <a class="item">Expedier</a>
+        <a class="item">Transporter</a>
+        <a class="item">Voir les annonces</a>
+        <div class="right item">
+          <a href="inscription.php" class="ui inverted button">Inscription</a>
+          <a href="login.php" class="ui inverted button">Connexion</a>
         </div>
       </div>
-  
+    </div>
     <style type="text/css">
       body {
         background-color: #DADADA;
@@ -111,8 +146,6 @@ if( isset($_POST['connexion']) ) {
   </div>
 </div>
 
-</body>
-  <footer>
  <div class="ui inverted vertical footer segment">
     <div class="ui container">
       <div class="ui stackable inverted divided equal height stackable grid">
@@ -133,5 +166,8 @@ if( isset($_POST['connexion']) ) {
     </div>
   </div>
 </div>
-</footer>
+
+
+</body>
+
 </html>

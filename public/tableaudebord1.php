@@ -1,24 +1,13 @@
 <?php
 session_start();
-include "lib/connexion.php";
 
-if( isset($_POST['inscrire']) ) {
-  $query = $dbh->prepare('INSERT INTO utilisateurs (civilite,nom,prenom,telephone,email,login,password)VALUES(:civilite,:nom,:prenom,:telephone,:email,:login,:password)');
-$query->bindValue('civilite', $_POST['civilite'], PDO::PARAM_INT);
-$query->bindValue('nom', $_POST['nom'], PDO::PARAM_STR);
-$query->bindValue('prenom', $_POST['prenom'], PDO::PARAM_STR);
-$query->bindValue('telephone', $_POST['telephone'], PDO::PARAM_STR);
-$query->bindValue('email', $_POST['email'], PDO::PARAM_STR);
-  $query->bindValue('login', $_POST['login'], PDO::PARAM_STR);
-  $query->bindValue('password', $_POST['password'], PDO::PARAM_STR);
-  $query->execute();
-    header('location: login.php');
-  }
+if( !isset($_SESSION['utilisateur']) ) {
+  header('location: login.php');
 }
 
 ?>
 
-
+<!DOCTYPE html>
 <html>
 <head>
   <!-- Standard Meta -->
@@ -89,71 +78,39 @@ $query->bindValue('email', $_POST['email'], PDO::PARAM_STR);
         </div>
       </div>
     </div>
-
-    </head>
-<form method="POST" action="">
+    <html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tableaudebord</title>
+</head>
 <body>
-<div class="ui middle aligned center aligned grid">
-  <div class="column">
-    <!-- <h2 class="ui teal image header"> -->
-     
-      <div class="content">
-        Inscrivez-vous
+        <!-- <?php
+        // echo "<pre>";
+        //   print_r($_SESSION);
+        // echo "</pre>";
+         ?> -->
+      <div class="header">
+          <?= $_SESSION['utilisateur']['civilite'] ?> 
+          <?= $_SESSION['utilisateur']['nom'] ?> 
+          <?= $_SESSION['utilisateur']['prenom'] ?>  </div>
+      <div class="meta">
+        <a><?= $_SESSION['utilisateur']['telephone'] ?> </a>
       </div>
-   <!--  </h2>
-     -->
-    <form class="ui large form">
-      <div class="ui stacked segment">
-        <div class="field">
-          <div class="ui left icon input">
-            <select name="civilite" id="">
-  <option value="0"></option>                  
-  <option value="1">M.</option>                  
-  <option value="2">Mme</option>                  
-  <option value="3">Mlle</option>                  
-      </select>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="user icon"></i>
-            <input type="text" name="nom" placeholder="Nom"><br>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="user icon"></i>
-            <input type="text" name="prenom" placeholder="Prenom"><br>
-          </div>
-        </div>
-         <div class="field">
-          <div class="ui left icon input">
-            <input type="text" name="email" placeholder="email"><br>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <input type="text" name="telephone" placeholder="telephone"><br>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <input type="text" name="login" placeholder="Login"><br>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="lock icon"></i>
-            <input type="text" name="password" placeholder="Password"><br>
-          </div>
-        </div>
-        <div class="ui  submit button">
-          <input type="submit" name="inscrire" value="S'inscrire">
-        </div>
+      <div class="description">
+        <?= $_SESSION['utilisateur']['email'] ?> 
       </div>
-
-    </form>
-    <div class="ui inverted vertical footer segment">
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        Joined in 2013
+      </span>
+      <span>
+        <i class="user icon"></i>
+        75 Friends
+      </span>
+    </div>
+  </div>
+  <div class="ui inverted vertical footer segment">
     <div class="ui container">
       <div class="ui stackable inverted divided equal height stackable grid">
         <div class="three wide column">
@@ -173,6 +130,8 @@ $query->bindValue('email', $_POST['email'], PDO::PARAM_STR);
     </div>
   </div>
 </div>
+
+
 </body>
 
 </html>

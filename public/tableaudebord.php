@@ -34,8 +34,8 @@ if( !isset($_SESSION['utilisateur']) ) {
           <a class="item">Transporter</a>
           <a class="item">Voir les annonces</a>
           <div class="right item">
-            <a class="ui inverted button">Inscription</a>
-            <a class="ui inverted button">Connexion</a>
+             <a href="inscription.php" class="ui inverted button">Inscription</a>
+             <a href="login.php" class="ui inverted button">Connexion</a>
         </div>
       </div>
 
