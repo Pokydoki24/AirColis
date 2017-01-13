@@ -6,43 +6,82 @@ if( !isset($_SESSION['utilisateur']) ) {
 }
 
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>offre</title>
-  <link rel="stylesheet" type="text/css" href="lib/semantic/semantic.min.css"> 
-  <link rel="stylesheet" href="lib/semantic-calendar/dist/calendar.min.css" />
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Site Properties -->
+  <title>Homepage - Semantic</title>
+  
+  <link rel="stylesheet" type="text/css" href="lib/semantic/semantic.css">
+
+ <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+  <script src="lib/semantic/semantic.js"></script>
+
+  
+  <script>
+  $(document)
+    .ready(function() {
+
+      // fix menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+  </script>
  
+<script src="lib/semantic/semantic.min.js"></script>
 </head>
+<body>
 
+<!-- Page Contents -->
+<div class="pusher">
+  <div class="ui inverted vertical masthead center aligned segment">
 
-
-    <body>
-    <!-- Page Contents -->
-
-  <div class="ui inverted vertical  center aligned segment">
-
-    
+    <div class="ui container">
       <div class="ui large secondary inverted pointing menu">
-          <a class="toc item">
-            <i class="sidebar icon"></i>
-          </a>
-          <a class="active item">AirColis</a>
-          <a class="item">Comment ca marche?</a>
-          <a class="item">Expedier</a>
-          <a class="item">Transporter</a>
-          <a class="item">Voir les annonces</a>
-          <div class="right item">
-             <a href="inscription.php" class="ui inverted button">Inscription</a>
-             <a href="login.php" class="ui inverted button">Connexion</a>
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="active item">AirColis</a>
+        <a class="item">Comment ca marche?</a>
+        <a class="item">Expedier</a>
+        <a class="item">Transporter</a>
+        <a class="item">Voir les annonces</a>
+        <div class="right item">
+          <a href="inscription.php" class="ui inverted button">Inscription</a>
+          <a href="login.php" class="ui inverted button">Connexion</a>
         </div>
       </div>
-
-<html lang="en">
+    </div>
+    <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Tableaudebord</title>
+  <meta charset="UTF-8">
+  <title>Tableaudebord</title>
 </head>
 <body>
         <!-- <?php
@@ -50,29 +89,29 @@ if( !isset($_SESSION['utilisateur']) ) {
         //   print_r($_SESSION);
         // echo "</pre>";
          ?> -->
-      <div class="header">
-          <?= $_SESSION['utilisateur']['civilite'] ?> 
-          <?= $_SESSION['utilisateur']['nom'] ?> 
-          <?= $_SESSION['utilisateur']['prenom'] ?>  </div>
-      <div class="meta">
-        <a><?= $_SESSION['utilisateur']['telephone'] ?> </a>
-      </div>
-      <div class="description">
-        <?= $_SESSION['utilisateur']['email'] ?> 
-      </div>
-    </div>
-    <div class="extra content">
-      <span class="right floated">
-        Joined in 2013
-      </span>
-      <span>
-        <i class="user icon"></i>
-        75 Friends
-      </span>
-    </div>
-  </div>
+    
+           <div class="ui list">
+               <div class="item">
+                <i class="users icon"></i>
+  
+                 <?= $_SESSION['utilisateur']['civilite'] ?> 
+                 <?= $_SESSION['utilisateur']['nom'] ?> 
+                 <?= $_SESSION['utilisateur']['prenom'] ?> 
+              </div class="item">
+              <div class="item">
+               <i class="mail icon"></i>
+               <?= $_SESSION['utilisateur']['email'] ?> 
+               </div class="item">
+              <div class="item">
+            <i class="phone icon"></i>
+            <?= $_SESSION['utilisateur']['telephone'] ?> 
+            </div class="item">
+         </div class="ui list">
 
-   <div class="ui inverted vertical footer segment">
+<br><br><br><br><br><br><br><br>
+      
+   
+  <div class="ui inverted vertical footer segment">
     <div class="ui container">
       <div class="ui stackable inverted divided equal height stackable grid">
         <div class="three wide column">
@@ -92,17 +131,8 @@ if( !isset($_SESSION['utilisateur']) ) {
     </div>
   </div>
 </div>
-	
-</body>
-<script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="lib/semantic/semantic.min.css">
 
-<script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-<script src="lib/semantic/semantic.min.js"></script>
+
+</body>
+
 </html>

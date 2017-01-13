@@ -14,7 +14,7 @@ $query->bindValue('email', $_POST['email'], PDO::PARAM_STR);
   $query->execute();
     header('location: login.php');
   }
-}
+
 
 ?>
 
@@ -128,7 +128,12 @@ $query->bindValue('email', $_POST['email'], PDO::PARAM_STR);
         </div>
          <div class="field">
           <div class="ui left icon input">
-            <input type="text" name="email" placeholder="email"><br>
+            <input type="text" name="datedenaissance" placeholder="datedenaissance"><br>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <input type="text" name="ville" placeholder="ville"><br>
           </div>
         </div>
         <div class="field">
@@ -136,6 +141,12 @@ $query->bindValue('email', $_POST['email'], PDO::PARAM_STR);
             <input type="text" name="telephone" placeholder="telephone"><br>
           </div>
         </div>
+         <div class="field">
+          <div class="ui left icon input">
+            <input type="text" name="email" placeholder="email"><br>
+          </div>
+        </div>
+        
         <div class="field">
           <div class="ui left icon input">
             <input type="text" name="login" placeholder="Login"><br>

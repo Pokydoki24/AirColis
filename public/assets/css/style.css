@@ -14,10 +14,10 @@ html {
   /* 2 */
 }
 
-.ui.fixed.inverted.menu{
-	background: #f8f8f8;
+.ui.stackable.container.menu{
+	background: #F0F8FF;
     padding: 2rem;
-    margin: -1rem;
+   
 }
 
 .ui.container{
@@ -32,17 +32,10 @@ html {
     font-weight: 400;
 }
 
-.ui.container a:first-of-type{
-	font-weight: bold;
-	font-size: 3rem;
-	position: absolute;
-	top: 0;
-    left: 0;
-    margin: 1rem;
-}
 
-.ui.inverted.button{
-	background-color: black;
+
+.item.ui.segment.button{
+	background-color: green;
 	color: white;
     padding: 1rem;
     border-radius: 10px;
@@ -106,5 +99,12 @@ footer{
 	background-color: black;
 	text-align: center;
 	color: white;
-	padding: .5rem;
+	padding: 0.3rem;
+	margin-left: -5rem;
+	margin-right:-5rem;
+	margin-bottom: -5rem;
 }
+
+
+
+	
