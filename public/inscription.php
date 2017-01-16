@@ -117,49 +117,49 @@ $query->bindValue('email', $_POST['email'], PDO::PARAM_STR);
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="nom" placeholder="Nom"><br>
+            <input type="text" name="myform[nom]" placeholder="Nom"><br>
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="prenom" placeholder="Prenom"><br>
+            <input type="text" name="myform[prenom]" placeholder="Prenom"><br>
           </div>
         </div>
          <div class="field">
           <div class="ui left icon input">
-            <input type="text" name="datedenaissance" placeholder="datedenaissance"><br>
+            <input type="text" name="myform[datedenaissance]" placeholder="datedenaissance"><br>
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
-            <input type="text" name="ville" placeholder="ville"><br>
+            <input type="text" name="myform[ville]" placeholder="ville"><br>
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
-            <input type="text" name="telephone" placeholder="telephone"><br>
+            <input type="text" name="myform[telephone]" placeholder="telephone"><br>
           </div>
         </div>
          <div class="field">
           <div class="ui left icon input">
-            <input type="text" name="email" placeholder="email"><br>
+            <input type="text" name="myform[email]" placeholder="email"><br>
           </div>
         </div>
         
         <div class="field">
           <div class="ui left icon input">
-            <input type="text" name="login" placeholder="Login"><br>
+            <input type="text" name="myform[login]" placeholder="Login"><br>
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="text" name="password" placeholder="Password"><br>
+            <input type="text" name="myform[password]" placeholder="Password"><br>
           </div>
         </div>
         <div class="ui  submit button">
-          <input type="submit" name="inscrire" value="S'inscrire">
+          <input type="submit" name="register" value="S'inscrire">
         </div>
       </div>
 

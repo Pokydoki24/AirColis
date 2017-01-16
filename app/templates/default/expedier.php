@@ -1,16 +1,22 @@
 <?php $this->layout('layout') ?>
 
 <?php $this->start('main_content') ?>
-  <h1>Publier votre trajet </h1>
+  <h1>Expedier mon colis </h1>
 <form class="ui form">
-      <div class="ui calendar" id="example1">
-          <div class="ui input left icon">
-            <i class="calendar icon"></i>
-            <input type="text" placeholder="Date/Time">
-          </div>
-        </div>
-
-<div class="ui search aeroport">
+    <div class="ui stacked segment">
+    <div class="field">
+    <div class="ui left icon input">
+     <i class="suitcase icon"></i>
+<input type="text" name="nom" placeholder="petit,moyen, grand colis">
+    </div>
+    </div>
+      <div class="ui stacked segment">
+      <label>Description de l'objet</label>
+      <textarea name="textarea"
+   rows="10" cols="50">  
+      </textarea>
+      </div>
+ <div class="ui search aeroport">
   <div class="ui icon input">
     <input class="prompt" type="text" placeholder="Lieu de départ">
     <i class="search icon"></i>
@@ -26,26 +32,17 @@
   <div class="results"></div>
 </div>
 
-<div class="ui form trajet">
-  <div class="grouped fields trajet">
-    <label>Fréquence</label>
-    <div class="field">
-      <div class="ui radio checkbox trajet">
-        <input type="radio" name="example1" checked="checked">
-        <label>Je fais le trajet une fois </label>
-      </div>
-    </div>
-    <div class="field">
-      <div class="ui radio checkbox">
-        <input type="radio" name="example2">
-        <label>Je fais le trajet régulièrement</label>
-      </div>
-
+Avant le  <div class="ui calendar" id="example1">
+          <div class="ui input left icon">
+            <i class="calendar icon"></i>
+            <input type="text" placeholder="Date/Time">
+          </div>
+        </div>
 
 
 <div class="ui form kilos">
   <div class="grouped fields kilos">
-    <label>Quelle capacité pouvez-vous transporter ?</label>
+    <label>Format du colis</label>
     <div class="field">
       <div class="ui radio checkbox kilos">
         <input type="radio" name="example2" checked="checked">
@@ -80,7 +77,7 @@
 </div>
  <div class="ui form">
   <div class="field">
-    <label>Prix que la personne accepte par kilo</label>
+    <label>Prix que la personne paye par kilo</label>
     <div class="ui left icon input">
     <i class="euro icon"></i>
     <input type="text">

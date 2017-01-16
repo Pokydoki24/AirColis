@@ -14,16 +14,10 @@ html {
   /* 2 */
 }
 
-.ui.stackable.container.menu{
-	background: #F0F8FF;
-    padding: 2rem;
-   
+.ui.stackable.large.menu{
+	background-color: grey;
 }
 
-.ui.container{
-	text-align: right;
-	position: relative;
-}
 
 .ui.container a{
 	text-decoration: none;
@@ -34,16 +28,14 @@ html {
 
 
 
-.item.ui.segment.button{
+
+.ui.segment.button:hover{
 	background-color: green;
-	color: white;
-    padding: 1rem;
-    border-radius: 10px;
+	color: black;
 }
 
-.ui.inverted.button:hover{
-	background-color: white;
-	color: black;
+.ui .segment .left .floated .button{
+	margin-top: 5rem;
 }
 
 .ui.inverted.header{
@@ -54,31 +46,15 @@ html {
 	background-image: url(http://tpe-aerodynamisme-aeronautique.e-monsite.com/medias/album/wallpaper-avion-dans-le-ciel.jpg); 
 	background-repeat: no-repeat;
     background-position: center;
-    max-width: 100%;
-}
+    max-width: 100%;}
+
 
 .ui.header{
 	text-align: center;
 	margin-top: 2rem;
 }
 
-article{
-	display: inline-block;
-	text-align: center;
-	width: 33%;
-	padding: 2rem;
-}
 
-.ui.vertical.stripe h3{
-	font-size: 2.5em;
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
-    font-weight: bold
-}
-
-i.icon, i.icons{
-	font-size: 6rem;
-}
 
 h4{
 	font-size: 1.5rem;
@@ -88,10 +64,10 @@ h4{
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
   background-color: #58a8e8;
-  padding: 4rem;
+  
 }
 
-.ui.invertes.link.item>a{
+.ui.inverted.link.item>a{
 	color: black;
 }
 
