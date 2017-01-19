@@ -10,13 +10,14 @@
       <th>villeArrivee</th>
       <th>dateTrajet</th>
       <th>poidsPropose</th>
+      <th>prixpropose</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td class="collapsing">
         <div class="ui fitted slider checkbox">
-          <input type="checkbox"> <label></label>
+          <input type="checkbox"> 
         </div>
       </td>
       <?php foreach($liste as $trajet) { ?>
@@ -24,7 +25,7 @@
       <td><?=$trajet['villeDepart']?></td>
       <td><?=$trajet['villeArrivee']?></td>
       <td><?=$trajet['dateTrajet']?></td>
-      <td><?=$trajet['poidsPropose']?></td>  
+      <td><?=$trajet['poidsPropose']?></td> <td><?=$trajet['Prix']?></td> 
     </tr>
 
   </tbody>
