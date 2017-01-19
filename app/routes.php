@@ -7,10 +7,10 @@
 
 		['GET|POST', '/expedier', 'Default#expedier', 'expedier'],
 
-		['GET', '/proposer', 'Default#proposer', 'proposer'],
+		['GET', '/proposer', 'Default#proposertrajet', 'proposertrajet'],
 
 
-		['GET', '/annonces', 'Default#annonces', 'annonces'],
+		['GET', '/trajetlisting', 'Default#trajetlisting', 'trajetlisting'],
 
 		['GET|POST', '/connexion', 'User#connexion', 'connexion'],
 

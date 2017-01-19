@@ -59,7 +59,7 @@
          <div class="field">
           <div class="ui left icon input">
             <i class="mail icon"></i>
-            <input type="text" name="[myform]email" placeholder="email"><br>
+            <input type="email" name="[myform]email" placeholder="email"><br>
           </div>
         </div>
         

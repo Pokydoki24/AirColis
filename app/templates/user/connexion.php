@@ -17,13 +17,13 @@
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="myform[login]" placeholder="Login">
+            <input type="text" name="myform2[login]" placeholder="Login">
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="myform[password]" placeholder="Password">
+            <input type="password" name="myform2[password]" placeholder="Password">
           </div>
         </div>
         <div class="ui fluid large teal submit button">

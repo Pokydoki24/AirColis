@@ -4,6 +4,8 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \Manager\ArticleManager;
+use \Manager\TrajetManager;
+
 class DefaultController extends Controller
 
 
@@ -35,10 +37,24 @@ class DefaultController extends Controller
 		$this->show('default/index');
 	}
 
-	public function proposer()
-	{
-		$this->show('default/proposer');
-	}
+	// public function inscription(){
+	// if(isset($_POST['valider'])){
+ //            $manager = new TrajetManager();
+ //            $trajets = $manager->insert([
+ //                'villeDepart' => $_POST['myform3']['villeDepart'],
+ //                'villeArrivee' => $_POST['myform3']['villeArrivee'],           
+ //                'dateTrajet' => $_POST['myform3']['dateTrajet'], 
+ //                'poidsPropose' => $_POST['myform3']['poidsPropose'],
+ //                            ]);
+            
+ //            $this->redirectToRoute('index');
+ //        }
+ //        else{
+ //            $this->show('default/proposertrajet');
+ //         }
+
+	// 	$this->show('default/proposertrajet');
+	// }
 
 	
 	
@@ -48,10 +64,21 @@ class DefaultController extends Controller
 		$this->show('default/expedier');
 	}
 
-	public function annonces()
+	public function proposertrajet()
 	{
 		// TODO traitement de l'inscription
-		$this->show('default/annonces');
+		$this->show('default/proposertrajet');
 	}
+
+
+	public function trajetlisting()
+	{
+		// TODO traitement de l'inscription
+		$manager = new TrajetManager();
+		$liste = $manager->findAll();
+		$this->show('default/trajetlisting',['liste'=>$liste]);
+	}
+
+	
 
 }

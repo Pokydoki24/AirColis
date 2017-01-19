@@ -6,13 +6,13 @@
       <div class="ui calendar" id="example1">
           <div class="ui input left icon">
             <i class="calendar icon"></i>
-            <input type="text" placeholder="Date/Time">
+            <input type="text" name="[myform3]dateTrajet" placeholder="Date du trajet">
           </div>
         </div>
 
 <div class="ui search aeroport">
   <div class="ui icon input">
-    <input class="prompt" type="text" placeholder="Lieu de départ">
+    <input type="text"  name="[myform3]villeDepart" placeholder="Lieu de départ">
     <i class="search icon"></i>
   </div>
   <div class="results"></div>
@@ -20,7 +20,7 @@
 
 <div class="ui search">
   <div class="ui icon input">
-    <input class="prompt" type="text" placeholder="Lieu d'arrivée">
+    <input type="text" name="[myform3]villeArrivee" placeholder="Lieu d'arrivée">
     <i class="search icon"></i>
   </div>
   <div class="results"></div>

@@ -1,6 +1,11 @@
 <?php
 
+Class UserManager extends \W\Manager\Manager {
 
+
+
+	
+}
 
 /* W/Manager/Manager.php */
 
