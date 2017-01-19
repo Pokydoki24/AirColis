@@ -5,6 +5,7 @@ namespace Controller;
 use \W\Controller\Controller;
 use \Manager\ArticleManager;
 use \Manager\TrajetManager;
+use \Manager\ColisManager;
 
 class DefaultController extends Controller
 
@@ -14,17 +15,17 @@ class DefaultController extends Controller
 	/**
 	 * Page d'accueil par défaut
 	 */
-	public function home()
-	{
-		$manager = new ArticleManager();
-		$annonces = $manager->findAll();
-		$this->show('default/home', ['liste_colis' => $colis]);
-	}
+	// public function home()
+	// {
+	// 	$manager = new ArticleManager();
+	// 	$annonces = $manager->findAll();
+	// 	$this->show('default/home', ['liste_colis' => $colis]);
+	// }
 
-	public function colis($id) {
-		$manager = new ArticleManager();
-		$article = $manager->find($id);
-		$this->show('default/colis', ['colis' => $colis]);
+	public function colislisting() {
+		$manager = new ColisManager();
+		$liste = $manager->findAll();
+		$this->show('default/colislisting', ['liste' => $liste]);
 	}
 
 
@@ -37,24 +38,13 @@ class DefaultController extends Controller
 		$this->show('default/index');
 	}
 
-	// public function inscription(){
-	// if(isset($_POST['valider'])){
- //            $manager = new TrajetManager();
- //            $trajets = $manager->insert([
- //                'villeDepart' => $_POST['myform3']['villeDepart'],
- //                'villeArrivee' => $_POST['myform3']['villeArrivee'],           
- //                'dateTrajet' => $_POST['myform3']['dateTrajet'], 
- //                'poidsPropose' => $_POST['myform3']['poidsPropose'],
- //                            ]);
-            
- //            $this->redirectToRoute('index');
- //        }
- //        else{
- //            $this->show('default/proposertrajet');
- //         }
-
-	// 	$this->show('default/proposertrajet');
-	// }
+	public function trajetlisting()
+	{
+		// TODO traitement de l'inscription
+		$manager = new TrajetManager();
+		$liste = $manager->findAll();
+		$this->show('default/trajetlisting',['liste'=>$liste]);
+	}
 
 	
 	
@@ -71,13 +61,7 @@ class DefaultController extends Controller
 	}
 
 
-	public function trajetlisting()
-	{
-		// TODO traitement de l'inscription
-		$manager = new TrajetManager();
-		$liste = $manager->findAll();
-		$this->show('default/trajetlisting',['liste'=>$liste]);
-	}
+	
 
 	
 

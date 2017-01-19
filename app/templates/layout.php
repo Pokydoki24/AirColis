@@ -43,6 +43,12 @@
           <div class="ui green button">
           <a href="<?= $this->url('trajetlisting') ?>">Trajets</a>
           </div>
+          <div class="ui blue button">
+          <a href="<?= $this->url('matching') ?>">Recherche</a>
+          </div>
+          <div class="ui green button">
+          <a href="<?= $this->url('colislisting') ?>">Colis</a>
+          </div>
           <div class="mobile only sixteen wide colum">
           <a href="<?=$this->url('inscription')?>" class=" ui  left floated primary button">Inscription</a>
           <?php if(!isset($_SESSION['user'])): ?>

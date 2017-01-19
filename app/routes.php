@@ -12,6 +12,11 @@
 
 		['GET', '/trajetlisting', 'Default#trajetlisting', 'trajetlisting'],
 
+		['GET', '/colislisting', 'Default#colislisting', 'colislisting'],
+
+
+		['GET', '/matching', 'Default#matching', 'matching'],
+
 		['GET|POST', '/connexion', 'User#connexion', 'connexion'],
 
 		['GET', '/deconnexion', 'User#deconnexion', 'deconnexion'],	

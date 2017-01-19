@@ -7,7 +7,7 @@
     <div class="field">
     <div class="ui left icon input">
      <i class="suitcase icon"></i>
-<input type="text" name="nom" placeholder="petit,moyen, grand colis">
+<input type="text" name="nom_colis" placeholder="nom du colis">
     </div>
     </div>
       <div class="ui stacked segment">
@@ -18,7 +18,7 @@
       </div>
  <div class="ui search aeroport">
   <div class="ui icon input">
-    <input class="prompt" type="text" placeholder="Lieu de départ">
+    <input class="prompt" name="ville_depart" placeholder="Lieu de départ">
     <i class="search icon"></i>
   </div>
   <div class="results"></div>
@@ -26,7 +26,7 @@
 
 <div class="ui search">
   <div class="ui icon input">
-    <input class="prompt" type="text" placeholder="Lieu d'arrivée">
+    <input class="prompt" name="ville_arrivee" placeholder="Lieu d'arrivée">
     <i class="search icon"></i>
   </div>
   <div class="results"></div>
