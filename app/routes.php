@@ -10,12 +10,10 @@
 		['GET', '/proposer', 'Default#proposertrajet', 'proposertrajet'],
 
 
-		['GET', '/trajetlisting', 'Default#trajetlisting', 'trajetlisting'],
+		['GET', '/matchingpoids', 'Default#matchingpoids', 'matchingpoids'],
 
-		['GET', '/colislisting', 'Default#colislisting', 'colislisting'],
+		['GET', '/matchingprix', 'Default#matchingprix', 'matchingprix'],
 
-
-		['GET', '/matching', 'Default#matching', 'matching'],
 
 		['GET|POST', '/connexion', 'User#connexion', 'connexion'],
 

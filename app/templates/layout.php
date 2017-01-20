@@ -27,32 +27,18 @@
          
         <div class="ui stackable large  menu">
            <div class="ui container">
-           <div class="ui green button">
+           
           <a href="<?= $this->url('index') ?>">AirColis<i class="suitcase icon"></i>
           </a>
-          </div>
-          <div class="ui blue button">
-          <a href="#" >Comment ca marche?</a>
-          </div>
-          <div class="ui green button">
-          <a href="<?= $this->url('expedier') ?>">Expedier</a>
-          </div>
-          <div class="ui blue button">
-          <a href="<?= $this->url('proposertrajet') ?>" >Proposer </a>
-          </div>
-          <div class="ui green button">
-          <a href="<?= $this->url('trajetlisting') ?>">Trajets</a>
-          </div>
-          <div class="ui blue button">
-          <a href="<?= $this->url('matching') ?>">Recherche</a>
-          </div>
-          <div class="ui green button">
-          <a href="<?= $this->url('colislisting') ?>">Colis</a>
-          </div>
-          <div class="mobile only sixteen wide colum">
-          <a href="<?=$this->url('inscription')?>" class=" ui  left floated primary button">Inscription</a>
+           <a href="#" >Comment ca marche?</a>
+           <a href="<?= $this->url('expedier') ?>">Expedier</a>
+           <a href="<?= $this->url('proposertrajet') ?>" >Proposer </a>
+            <a href="<?= $this->url('matchingpoids') ?>">Annonces en fonction de votre poids</a>
+          <a href="<?= $this->url('matchingprix') ?>">Annonces en fonction de votre budget</a>
+           <div class="mobile only sixteen wide colum">
+          <a href="<?=$this->url('inscription')?>" class=" ui  left floated button">Inscription</a>
           <?php if(!isset($_SESSION['user'])): ?>
-          <a href="<?= $this->url('connexion') ?>"  class="ui  right floated secondary button">Connexion</a>
+          <a href="<?= $this->url('connexion') ?>"  class="ui  right floated button">Connexion</a>
            <?php else: ?>
               <a class="item" href="<?= $this->url('logout')?>">Déconnexion</a>
               <?php endif ?>

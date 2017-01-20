@@ -1,3 +1,13 @@
+<?php
+    $titre = "Matchingpoids";
+?>
+
+
+
+<?php $this->layout('layout'); ?>
+
+
+<?php $this->start('main_content') ?>
 <?php $this->layout('layout') ?>
 
 <?php $this->start('main_content') ?>
@@ -10,7 +20,6 @@
       <th>villeArrivee</th>
       <th>dateTrajet</th>
       <th>poidsPropose</th>
-      <th>prixpropose</th>
     </tr>
   </thead>
   <tbody>
@@ -25,9 +34,8 @@
       <td><?=$trajet['villeDepart']?></td>
       <td><?=$trajet['villeArrivee']?></td>
       <td><?=$trajet['dateTrajet']?></td>
-      <td><?=$trajet['poidsPropose']?></td> <td><?=$trajet['Prix']?></td> 
+      <td><?=$trajet['poidsPropose']?></td>  
     </tr>
-
   </tbody>
   <th></th>   
 <?php } ?>  
