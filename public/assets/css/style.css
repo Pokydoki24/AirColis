@@ -22,33 +22,30 @@ html {
 
 .ui.container a{
 	text-decoration: none;
-	margin: .5rem;
+	margin: 5rem;
     color: black;
     font-weight: 400;
 }
 
-
-
-
-.ui.segment.button:hover{
+/*.ui.segment.button:hover{
 	background-color: green;
 	color: black;
 }
-
+*/
 .ui .segment .left .floated .button{
 	margin-top: 5rem;
 }
 
-.ui.inverted.header{
+.ui.container.header{
 	color: black;
-	padding: 10rem;
-	margin: 1rem;
-	/*Probleme integration image*/
-	background-image: url(http://tpe-aerodynamisme-aeronautique.e-monsite.com/medias/album/wallpaper-avion-dans-le-ciel.jpg); 
-	background-repeat: no-repeat;
-    background-position: center;
-    max-width: 100%;}
 
+
+}
+.background {
+		background: url(http://tpe-aerodynamisme-aeronautique.e-monsite.com/medias/album/wallpaper-avion-dans-le-ciel.jpg) no-repeat center center; 
+
+    background-size: cover;
+}
 
 .ui.header{
 	text-align: center;

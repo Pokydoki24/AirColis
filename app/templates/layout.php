@@ -23,26 +23,24 @@
 
   <body>
 
-    <!-- Page Contents -->
-         
-        <div class="ui stackable large  menu">
-           <div class="ui container">
-           
-          <a href="<?= $this->url('index') ?>">AirColis<i class="suitcase icon"></i>
-          </a>
-           <a href="<?=$this->url('commentcamarche')?>">Comment ca marche?</a>
-           <a href="<?= $this->url('expedier') ?>">Expedier</a>
-           <a href="<?= $this->url('proposertrajet') ?>" >Proposer </a>
-           <div class="mobile only sixteen wide colum">
-          <a href="<?=$this->url('inscription')?>" class=" ui  left floated button">Inscription</a>
+    <!-- Page Contents -->   
+    <div class="ui stackable large  menu">
+       <div class="ui container header">           
+        <a href="<?= $this->url('index') ?>">AirColis<i class="suitcase icon"></i>
+        </a>
+        <a href="<?=$this->url('commentcamarche')?>">Comment ca marche?</a>
+        <a href="<?= $this->url('expedier') ?>">Expedier</a>
+        <a href="<?= $this->url('proposertrajet') ?>" >Proposer </a>
+        <div class="mobile only sixteen wide colum">
+          <a href="<?=$this->url('inscription')?>" class=" ui left floated button">Inscription</a>
           <?php if(!isset($_SESSION['user'])): ?>
-          <a href="<?= $this->url('connexion') ?>"  class="ui  right floated button">Connexion</a>
-           <?php else: ?>
-              <a class="item" href="<?= $this->url('logout')?>">Déconnexion</a>
-              <?php endif ?>
-          </div>
-          </div>
-          </div>
+          <a href="<?= $this->url('connexion') ?>"  class="ui right floated button">Connexion</a>
+          <?php else: ?>
+          <a class="item" href="<?= $this->url('logout')?>">Déconnexion</a>
+          <?php endif ?>
+      </div>
+      </div>
+      </div>
         
           
       

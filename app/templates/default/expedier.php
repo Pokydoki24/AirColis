@@ -1,6 +1,7 @@
-<?php $this->layout('layout') ?>
+<?php $this->layout('layout_3') ?>
 
 <?php $this->start('main_content') ?>
+<div class="sixteen wide column">
   <h1>Expedier mon colis </h1>
 <form class="ui form">
     <div class="ui stacked segment">
@@ -86,6 +87,7 @@ Avant le  <div class="ui calendar" id="example1">
 
   <button class="ui button" type="submit">Valider</button>
 </form>
+</div>
 </div>
 <?php $this->stop('main_content') ?>
 
