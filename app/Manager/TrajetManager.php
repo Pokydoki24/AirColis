@@ -36,11 +36,11 @@ class TrajetManager extends \W\Manager\Manager {
 			}
 		}
 		$sth = $this->dbh->prepare($sql);
-		// $sth->bindValue('poids', $poids);
-		// $sth->bindValue('villeDepart', $villeDepart);
-		// $sth->bindValue('villeArrivee', $villeArrivee);
-		// $sth->bindValue('date', $date);
-		// $sth->execute();
+		$sth->bindValue('poids', $poids);
+		$sth->bindValue('villeDepart', $villeDepart);
+		$sth->bindValue('villeArrivee', $villeArrivee);
+		$sth->bindValue('date', $date);
+		$sth->execute();
 
 		return $sth->fetchAll();
 	}

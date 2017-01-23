@@ -30,11 +30,9 @@
            
           <a href="<?= $this->url('index') ?>">AirColis<i class="suitcase icon"></i>
           </a>
-           <a href="#" >Comment ca marche?</a>
+           <a href="<?=$this->url('commentcamarche')?>">Comment ca marche?</a>
            <a href="<?= $this->url('expedier') ?>">Expedier</a>
            <a href="<?= $this->url('proposertrajet') ?>" >Proposer </a>
-            <a href="<?= $this->url('matchingpoids') ?>">Annonces en fonction de votre poids</a>
-          <a href="<?= $this->url('matchingprix') ?>">Annonces en fonction de votre budget</a>
            <div class="mobile only sixteen wide colum">
           <a href="<?=$this->url('inscription')?>" class=" ui  left floated button">Inscription</a>
           <?php if(!isset($_SESSION['user'])): ?>

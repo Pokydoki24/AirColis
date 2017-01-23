@@ -1,5 +1,6 @@
 <?php
 
+
 namespace Controller;
 
 use \W\Controller\Controller;
@@ -7,6 +8,8 @@ use \Manager\ArticleManager;
 use \Manager\TrajetManager;
 use \Manager\ColisManager;
 use GUMP;
+
+
 
 class DefaultController extends Controller
 
@@ -68,12 +71,24 @@ class DefaultController extends Controller
 		$this->show('default/expedier');
 	}
 
-	public function proposertrajet(){
+	public function commentcamarche()
+	{
+		// TODO traitement de l'inscription
+		$this->show('default/commentcamarche');
+	}
+
+
+
+
+
+
+	public function proposertrajet()   {
 		
 		$errors=[];
 		$form=[];
 
 		if(isset($_['valider'])){
+
 
 
 			$gump=new GUMP();
@@ -118,21 +133,25 @@ class DefaultController extends Controller
             $manager->insert($_POST['myform']);
             $this->redirectToRoute('index');
             // $this->redirectToRoute('expedier?ConfirmationExpedier'); //redirection vers page ConfirmationproposerTrajet depuis la page proposerTrajet.
-       		 	}
-    		}
+
+       		 }
+    	
  
-   		}
+   	
+
    		 $this->show('default/proposertrajet', ['errors' => $errors, 'form' => $form]);
+   	}
+
+}
 				
-		}
+		
 			
 
 
-	}
+	
 
 
 	
 
 	
 
-}

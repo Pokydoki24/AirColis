@@ -21,6 +21,8 @@
 
 		['GET', '/annonce/[i:id]', 'Default#annonce', 'detail'],
 
+		['GET','/commentcamarche','Default#commentcamarche','commentcamarche']
+
 	
 
 
