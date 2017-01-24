@@ -5,13 +5,13 @@
 		['GET','/commentcamarche','Default#commentcamarche','commentcamarche'],
 		['GET|POST', '/inscription', 'User#inscription', 'inscription'],
 		['GET|POST', '/expedier', 'Default#expedier', 'expedier'],
-		['GET', '/proposer', 'Default#proposer', 'proposer'],
+		['GET|POST', '/proposer', 'Default#proposer', 'proposer'],
 		['GET', '/liste_colis', 'Default#listeColis', 'liste_colis'],
 		['GET', '/liste_trajets', 'Default#listeTrajets', 'liste_trajets'],
 		
 
 
-		['GET|POST', '/connexion', 'User#connexion', 'connexion'],
+		['GET', '/connexion', 'User#connexion', 'connexion'],
 		['GET', '/deconnexion', 'User#deconnexion', 'deconnexion'],	
 
 	

@@ -3,11 +3,12 @@
 <?php $this->start('main_content') ?>
 <div class="sixteen wide column">
   
-<form class="ui form" method="POST" action="" enctype="multipart/form-data">
+<form class="ui form" method="POST">
 
+  <!-- Calendier Semantic -->
   <div class="field">
     <label>Date du trajet</label>
-    <input type="text" name="myform[date]" placeholder="Exemple">
+    <input type="text" name="myform[date_trajet]" placeholder="Date">
   </div>
 
   <div class="field">
@@ -25,14 +26,14 @@
     
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="frequence" checked="" tabindex="0" class="" value="1">
+        <input type="radio" name="myform[frequence]" checked="" class="" value="1">
         <label>Je fais le trajet une fois</label>
       </div>
     </div>
     
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="frequence" tabindex="0" class="" value=""2">
+        <input type="radio" name="myform[frequence]" class="" value="2">
         <label>Je fais le trajet régulièrement</label>
       </div>
     </div>
@@ -49,7 +50,7 @@
       <input type="text" name="myform[prix]">
   </div>
 
-  <button class="ui button" type="submit">Valider</button>
+  <button class="ui button" name="valider" type="submit">Valider</button>
 
  </form>
 

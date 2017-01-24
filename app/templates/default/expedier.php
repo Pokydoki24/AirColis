@@ -2,7 +2,14 @@
 
 <?php $this->start('main_content') ?>
 <div class="sixteen wide column">
-  
+
+
+<?php if(!empty($errors)): ?>
+<div class="erreur">
+<?php print_r($errors) ?>
+</div>
+<?php endif ?>  
+
 <form class="ui form" method="POST" action="" enctype="multipart/form-data">
 
   <div class="field">
@@ -36,7 +43,7 @@
 
   <div class="field">
     <label>Poids du colis</label>
-      <select id="poids" name="myform[poids_colis]">
+      <select id="poids" name="myform[poids]">
         <option value="1">Moins de 5 kilos</option>
         <option value="2">Entre 5 et 10 kilos </option>
         <option value="3">Plus de 10 kilos</option>
@@ -58,9 +65,20 @@
     <input type="file" name="myform[photo]">
   </div>
 
- <button class="ui button" type="submit">Valider</button>
- </form>
+ <button class="ui button" name="valider" type="submit">Valider</button>
+
+ <!-- API Google map -->
+
+</form>
 
 </div>
+
 <?php $this->stop('main_content') ?>
 
+<!-- <?php //$this->start('javascript') ?>
+
+<script type="text/javascript" src="lib/semantic-calendar/dist/calendar.js"></script>
+
+<script>$('#example1').calendar();</script>
+
+<?php //$this->stop('javascript') ?> -->
