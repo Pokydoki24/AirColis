@@ -7,7 +7,7 @@
 
   <div class="field">
     <label>Nom du colis</label>
-    <input type="text" name="myform[nom_colis]" placeholder="Nom du colis">
+    <input type="text" name="myform[nom]" placeholder="Nom du colis">
   </div>
 
   <div class="field">

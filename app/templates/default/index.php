@@ -7,11 +7,10 @@
   <div class="ui bulleted list">
   <div class="item">Expedieur,Aircolis vous informe des places disponibles</div>
   <div class="item">Voyageur,Aircolis rentabilise vos voyages</div>
-<a href="<?= $this->url('expedier') ?>"><button class="positive large ui button"> Expedier un colis</button></a>
-<a href="<?= $this->url('proposertrajet') ?>" ><button class="positive ui  large button">Proposer un trajet</button></a>
+    <a href="<?= $this->url('expedier') ?>"><button class="positive large ui button"> Expedier un colis</button></a>
+    <a href="<?= $this->url('proposer') ?>" ><button class="positive ui large button">Proposer un trajet</button></a>
 </div>
 </div>
-
 
 <br>
 <h3>Annonces de colis à expedier</h3>

@@ -83,7 +83,7 @@ class DefaultController extends Controller{
   //           // $this->redirectToRoute('expedier?ConfirmationExpedier'); //redirection vers page ConfirmationproposerTrajet depuis la page proposerTrajet.
 
   //       }      		 
-		$this->show('default/proposertrajet', ['errors' => $errors, 'form' => $form]);
+		$this->show('default/proposer', ['errors' => $errors, 'form' => $form]);
 	}
 
 	public function listeColis() {

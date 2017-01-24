@@ -155,10 +155,11 @@
       <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
       <div class="right menu">
         <div class="item">
-          <a class="ui button">Connexion</a>
+          <a  href="<?= $this->url('inscription'); ?>" class="ui primary button">Inscription</a>
         </div>
         <div class="item">
-          <a class="ui primary button">Inscription</a>
+          <a href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
+          <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
         </div>
       </div>
     </div>
@@ -172,8 +173,10 @@
    <a href="<?= $this->url('proposer'); ?>" class="item">Proposer</a>
    <a href="<?= $this->url('liste_colis'); ?>" class="item">Liste des colis</a>
    <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
-   <a class="item">Connexion</a>
-   <a class="item">Inscription</a>
+   <a href="<?= $this->url('inscription'); ?>" class="item">Inscription</a>
+   <a href="<?= $this->url('connexion'); ?>" class="item">Connexion</a>
+   <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
+   
  </div>
 
 
@@ -193,8 +196,9 @@
         <a href="<?= $this->url('liste_colis'); ?>" class="item">Liste des colis</a>
         <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
         <div class="right item">
-          <a class="ui button">Connexion</a>
-          <a class="ui button">Inscription</a>
+           <a href="<?= $this->url('inscription'); ?>" class="item">Inscription</a>
+           <a href="<?= $this->url('connexion'); ?>" class="item">Connexion</a>
+           <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
         </div>
       </div>
     </div>

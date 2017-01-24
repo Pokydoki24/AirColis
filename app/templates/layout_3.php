@@ -127,10 +127,11 @@
       <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
       <div class="right menu">
         <div class="item">
-          <a class="ui button">Connexion</a>
+          <a  href="<?= $this->url('inscription'); ?>" class="ui primary button">Inscription</a>
         </div>
         <div class="item">
-          <a class="ui primary button">Inscription</a>
+          <a href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
+          <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
         </div>
       </div>
     </div>
@@ -145,8 +146,9 @@
       <a href="<?= $this->url('proposer'); ?>" class="item">Proposer</a>
       <a href="<?= $this->url('liste_colis'); ?>" class="item">Liste des colis</a>
       <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
-      <a class="item">Connexion</a>
-      <a class="item">Inscription</a>
+      <a href="<?= $this->url('inscription'); ?>" class="item">Inscription</a>
+      <a href="<?= $this->url('connexion'); ?>" class="item">Connexion</a>
+      <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
     </div>
 
 
@@ -157,17 +159,18 @@
         <div class="ui container">
           <div class="ui large secondary pointing menu">
             <a class="toc item">
-              <i class="sidebar icon"></i>
+            <i class="sidebar icon"></i>
             </a>
             <a href="<?= $this->url('index'); ?>" class="active item">AirColis</a>
             <a href="<?= $this->url('commentcamarche'); ?>" class="item">Comment ça marche ? </a>
             <a href="<?= $this->url('expedier'); ?>" class="item">Expédier</a>
             <a href="<?= $this->url('proposer'); ?>" class="item">Proposer</a>
             <a href="<?= $this->url('liste_colis'); ?>" class="item">Liste des colis</a>
-      <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
+            <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
             <div class="right item">
-              <a class="ui button">Connexion</a>
-              <a class="ui button">Inscription</a>
+             <a href="<?= $this->url('inscription'); ?>" class="item">Inscription</a>
+             <a href="<?= $this->url('connexion'); ?>" class="item">Connexion</a>
+             <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
             </div>
           </div>
         </div>
@@ -178,23 +181,7 @@
         <div class="ui middle aligned stackable grid container">
           <div class="row">
 
-
             <?= $this->section('main_content') ?>
-
-          <!-- <h3 class="ui header">We Help Companies and Companions</h3>
-          <p>We can give your Expédier superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
-          <h3 class="ui header">We Make Bananas That Can Dance</h3>
-          <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
-        </div>
-        <div class="six wide right floated column">
-          <img src="assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
-        </div>
-      </div>
-      <div class="row">
-        <div class="center aligned column">
-          <a class="ui huge button">Check Them Out</a>
-        </div>
-      </div> -->
 
     </div>
   </div>
