@@ -11,8 +11,8 @@
 		
 
 
-		['GET', '/connexion', 'User#connexion', 'connexion'],
-		['GET', '/deconnexion', 'User#deconnexion', 'deconnexion'],	
+		['GET|POST', '/connexion', 'user#connexion', 'connexion'],
+		['GET|POST', '/deconnexion', 'user#deconnexion', 'deconnexion'],	
 
 	
 

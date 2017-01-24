@@ -19,7 +19,7 @@ class UserController extends Controller
             $_POST['myform']['role'] = 'user';
             $manager = new UserManager();
             $wuser = $manager->insert([
-                 'username' => $_POST['myform']['email'],
+                'username' => $_POST['myform']['email'],
                 'email' => $_POST['myform']['email'],           
                 'password' => $_POST['myform']['password'], 
                 'role' => $_POST['myform']['role'],
@@ -39,18 +39,22 @@ class UserController extends Controller
 
     public function connexion(){
         if(isset($_POST['connexion'])){
+             // print_r($_POST['connexion']);
+             // die;
+              
             $auth_manager = new AuthentificationManager();
             $user_manager = new UserManager();
 
             if($auth_manager->isValidLoginInfo($_POST['myform']['username'], $_POST['myform']['password'])){
-                    $user = $user_manager->getUserByUsrnameOrEmail($_POST['myform']['username']);
+                    $user = $user_manager->getUserByUsernameOrEmail($_POST['myform']['username']);
                     $auth_manager->logUserIn($user);
+                   
                     $this->redirectToRoute('index');
-            }
-            else{
+           } else {
                 $this->show('user/connexion');
             }
         }
+        $this->show('user/connexion');
     }
 
     public function deconnexion(){

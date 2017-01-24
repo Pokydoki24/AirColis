@@ -1,14 +1,13 @@
-<?php $this->layout('layout_3') ?>
+<?php $this->layout('layout_3') //? (['title'=>'connexion']) ?>
 
 <?php $this->start('main_content') ?>
-
+        <H1 class="ui header">Connectez-vous à votre compte</H1>
 <div class="ui middle aligned center aligned grid">
-  <div class="column">
-      <div class="content">
-        <H2>Connectez-vous à votre compte</H2>
-      </div>
-    
-    <form class="ui large form" method="GET" action="">
+    <div class="column">
+      
+    </div>
+    </div>
+    <form class="ui large form" method="POST">
       <div class="ui stacked segment">
         <div class="field">
           <div class="ui left icon input">
@@ -18,16 +17,18 @@
         </div>
       </div>
 
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="lock icon"></i>
-            <input type="password" name="myform[password]" placeholder="Password">
-          </div>
+      <div class="field">
+        <div class="ui stacked segment">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <input type="password" name="myform[password]" placeholder="Password">
         </div>
+      </div>
 
-        <div class="ui fluid large teal submit button">
-          <input type="submit" name="connexion" value="Connexion">
-        </div>
-    </form>
+      <div class="ui fluid large blue submit button">
+        <input type="submit" name="connexion" value="Connexion">
+      </div>
+    </div>
+  </form>
 
-<?php $this->stop('main_content') ?>
+  <?php $this->stop('main_content') ?>

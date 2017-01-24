@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.css" />  
   <!-- <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>"> -->
 
-
   <style type="text/css">
 
     .hidden.menu {
@@ -232,6 +231,8 @@
     })
   ;
 </script>
+
+<?= $this->section('javascript') ?>
 </body>
 
 </html>

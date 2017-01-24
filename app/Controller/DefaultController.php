@@ -61,7 +61,7 @@ class DefaultController extends Controller{
 				'poids'    			=> 'trim|sanitize_string',
 				'prix'    			=> 'trim|whole_number',
 				'email' 			=> 'trim|sanitize_string'
-				// 'photo'    			=> 'trim|sanitize_string'
+				// 'photo'    		=> 'trim|sanitize_string'
 				));
 
 			$validated_data = $gump->run($_POST['myform']);	

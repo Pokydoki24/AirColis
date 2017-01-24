@@ -1,11 +1,11 @@
-<?php
-    $titre = "Détail de l'annonce";
+<!-- <?php
+    $titre //= "Détail de l'annonce";
 ?>
 
-<h3><?= $annonce['titre'] ?></h3>
+<h3><?= $annonce//['titre'] ?></h3> -->
 
 
-<?php $this->layout('layout'); ?>
+<?php $this->layout('layout_3'); ?>
 
 
 <?php $this->start('main_content') ?>

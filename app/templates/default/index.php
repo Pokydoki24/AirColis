@@ -7,8 +7,6 @@
   <div class="ui bulleted list">
   <div class="item">Expedieur,Aircolis vous informe des places disponibles</div>
   <div class="item">Voyageur,Aircolis rentabilise vos voyages</div>
-    <a href="<?= $this->url('expedier') ?>"><button class="positive large ui button"> Expedier un colis</button></a>
-    <a href="<?= $this->url('proposer') ?>" ><button class="positive ui large button">Proposer un trajet</button></a>
 </div>
 </div>
 
@@ -18,14 +16,16 @@
   <table class="ui inverted blue selectable celled right aligned  table">
   <thead>
     <tr>
-      <th>nom</th>
-      <th>ville de depart</th>
-      <th>ville d'arrivee</th>
-      <th>date de livraison</th>
-      <th>poids</th>
-      <th>prix</th>
+      <th></th>
+      <th>Nom</th>
+      <th>Ville de depart</th>
+      <th>Ville d'arrivee</th>
+      <th>Date de livraison</th>
+      <th>Poids</th>
+      <th>Prix</th>
     </tr>
   </thead>
+
   <tbody>
     <tr>
       <td class="collapsing">
@@ -34,7 +34,6 @@
         </div>
       </td>
       <?php foreach($liste_colis as $colis) { ?>
-      <td><?=$colis['id']?></td>
       <td><?=$colis['nom']?></td>
       <td><?=$colis['ville_depart']?></td>
       <td><?=$colis['ville_arrivee']?></td> 
@@ -58,7 +57,6 @@
   <thead>
     <tr>
       <th></th>
-      <th>id</th>
       <th>villeDepart</th>
       <th>villeArrivee</th>
       <th>dateTrajet</th>
@@ -74,10 +72,9 @@
         </div>
       </td>
       <?php foreach($liste_trajet as $trajet) { ?>
-      <td><?=$trajet['id']?></td>
-      <td><?=$trajet['villeDepart']?></td>
-      <td><?=$trajet['villeArrivee']?></td>
-      <td><?=$trajet['date']?></td>
+      <td><?=$trajet['ville_depart']?></td>
+      <td><?=$trajet['ville_arrivee']?></td>
+      <td><?=$trajet['date_trajet']?></td>
       <td><?=$trajet['poids']?>KG</td> 
       <td><?=$trajet['prix']?>E</td> 
     </tr>

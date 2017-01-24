@@ -2,11 +2,6 @@
 
 Class UserManager extends \W\Manager\Manager {
 
-
-
-	
-}
-
 /* W/Manager/Manager.php */
 
 // Hérite de toutes les méthodes du Manager, plus : 
@@ -19,3 +14,5 @@ public function emailExists($email)
 
 // Teste si un pseudo est présent en base de données
 public function usernameExists($username)	
+	
+}

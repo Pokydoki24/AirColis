@@ -11,6 +11,5 @@ class AdminController extends Controller
         $this->show('admin/index');
     }
 
-    
 
 }
