@@ -41,6 +41,24 @@
     </div>
   </form>
 
+<?php if(!empty($errors)): ?>
+<div class="erreur">
+<!-- <?php //print_r($errors) ?> -->
+
+<?php if(empty($_POST['myform']['ville_depart'])) {echo "Veuillez saisir la ville de depart <br>"  ;} ?>
+<?php if(empty($_POST['myform']['ville_arrivee'])) {echo "Veuillez saisir la ville d'arrivée <br>" ;} ?>
+<?php if(empty($_POST['myform']['date_livraison'])) {echo "Veuillez saisir une date <br>" ;} ?>
+<?php if(empty($_POST['myform']['poids'])) {echo "Veuillez saisir le poids du colis <br>" ;} ?>
+
+</div>
+<?php endif ?>  
+
+
+
+
+
+
+
   <h3>Liste de colis à expedier</h3>
   <div class="ui six column grid">
     <table class="ui inverted blue selectable celled right aligned  table">

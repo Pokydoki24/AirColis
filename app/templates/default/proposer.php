@@ -2,17 +2,21 @@
 
 <?php $this->start('main_content') ?>
 <div class="sixteen wide column">
+
+<h1>Proposer un trajet</h1>
   
 <form class="ui form" method="POST">
 
   <!-- Calendier Semantic -->
+
+  
     <label>Date du trajet</label>
      <div class="ui calendar" id="calendar1">
       <div class="ui input left icon">
       <i class="calendar icon"></i>
-    <input type="text" name="myform[date_trajet]" placeholder="Date">
-  </div>
-  </div>
+     <input type="text" name="myform[date_trajet]" placeholder="Date">
+     </div>
+      </div>
 
     <label>Lieu de départ</label>
     <div class="ui search aeroport">
@@ -53,19 +57,30 @@
 
   <div class="field">
     <label>Quelle capacité pouvez-vous transporter ?</label>
-      <input type="text" name="myform[poids]">
+      <input class="prompt" type="text" name="myform[poids]">
   </div>
 
   <div class="field">
     <label>Prix par kilo</label>
-      <input type="text" name="myform[prix]">
+      <input class="prompt" type="text" name="myform[prix]">
   </div>
 
-  <button class="ui button" name="valider" type="submit">Valider</button>
+  <button class="ui green button" name="valider" type="submit">Valider</button>
 
  </form>
 
+
+<?php if(!empty($errors)): ?>
+<div class="erreur">
+<!-- <?php //print_r($errors) ?> -->
+
+<?php if(empty($_POST['myform']['ville_depart'])) {echo "Veuillez saisir la ville de depart <br>"  ;} ?>
+<?php if(empty($_POST['myform']['ville_arrivee'])) {echo "Veuillez saisir la ville d'arrivée <br>" ;} ?>
+<?php if(empty($_POST['myform']['date_trajet'])) {echo "Veuillez saisir une date <br>" ;} ?>
+<?php if(empty($_POST['myform']['poids'])) {echo "Veuillez saisir le poids du colis <br>" ;} ?>
+<?php if(empty($_POST['myform']['prix'])) {echo "Veuillez saisir votre prix <br>"  ;} ?>
 </div>
+<?php endif ?>  
 <?php $this->stop('main_content') ?>
 
 <?php $this->start('javascript') ?>

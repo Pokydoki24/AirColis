@@ -7,6 +7,7 @@ use \Manager\TrajetManager;
 use \Manager\ColisManager;
 use \GUMP;
 
+
 class DefaultController extends Controller{
 
 	// Page Accueil
@@ -57,9 +58,10 @@ class DefaultController extends Controller{
 			$validated_data = $gump->run($_POST['myform']);	
 			
 
-			if($validated_data === false){
-				$errors = $gump->get_errors_array();
-				$form = $_POST['myform'];
+			if($validated_data === false and empty($_SESSION)) {
+					$errors = $gump->get_errors_array();
+					$form = $_POST['myform'];
+					$this->show('user/connexion');
 			} 
 			else { //Utilisateur connecte
 
@@ -91,55 +93,65 @@ class DefaultController extends Controller{
 		$errors = [];
 		$form = [];
 
-		if(isset($_POST['valider'])) { // traitement
-			 
-			$gump = new GUMP();
-			$_POST['myform'] = $gump->sanitize($_POST['myform']);
+		if(isset($_SESSION)){
 
-			
+			 //debug($_SESSION);
 
-			$gump->validation_rules(array(
 
-				'date_trajet'				=> 'required',
-				'ville_depart'      => 'required',
-				'ville_arrivee'     => 'required',
-				'frequence'     	=> 'required',
-				'poids'       		=> 'required',
-				'prix'              => 'required'
-				));
+			if(isset($_POST['valider'])) { // traitement
+				 
+				$gump = new GUMP();
+				$_POST['myform'] = $gump->sanitize($_POST['myform']);
 
-			$gump->filter_rules(array(
+				
 
-				'date_trajet' 		=> 'trim',
-				'ville_depart'      => 'trim|sanitize_string',
-				'ville_arrivee'     => 'trim|sanitize_string',
-				'frequence'     	=> 'trim|sanitize_string',
-				'poids'      		=> 'trim|sanitize_string',
-				'prix'              => 'trim|whole_number'
-				));
+				$gump->validation_rules(array(
 
-			$validated_data = $gump->run($_POST['myform']); 
-			
- 
+					'date_trajet'				=> 'required',
+					'ville_depart'      => 'required',
+					'ville_arrivee'     => 'required',
+					'frequence'     	=> 'required',
+					'poids'       		=> 'required',
+					'prix'              => 'required'
+					));
 
-			if($validated_data === false) {
-				$errors = $gump->get_errors_array();
-				$form = $_POST['myform'];
+				$gump->filter_rules(array(
 
-			} else {
-	        	$manager = new TrajetManager();
+					'date_trajet' 		=> 'trim',
+					'ville_depart'      => 'trim|sanitize_string',
+					'ville_arrivee'     => 'trim|sanitize_string',
+					'frequence'     	=> 'trim|sanitize_string',
+					'poids'      		=> 'trim|sanitize_string',
+					'prix'              => 'trim|whole_number'
+					));
 
-	        	$_POST['myform']['date_trajet'] = date('Y-m-d', strtotime($_POST['myform']['date_trajet']));
-	        	$_POST['myform']['utilisateur_id'] = $_SESSION['user']['id'];
-	        	
-     // print_r($_POST['myform']);
-			  // die;
-        		$manager->insert($_POST['myform']);
-        		$this->redirectToRoute('index');
-        	}
-        	$this->show('default/proposer', ['errors' => $errors, 'form' => $form]);
-        }
-        $this->show('default/proposer', ['errors' => $errors, 'form' => $form]);      		 
+				$validated_data = $gump->run($_POST['myform']); 
+				
+	 
+
+				if($validated_data === false and empty($_SESSION)) {
+					$errors = $gump->get_errors_array();
+					$form = $_POST['myform'];
+					$this->show('user/connexion');
+
+				} else {
+		        	$manager = new TrajetManager();
+
+		        	$_POST['myform']['date_trajet'] = date('Y-m-d', strtotime($_POST['myform']['date_trajet']));
+		        	$_POST['myform']['utilisateur_id'] = $_SESSION['user']['id'];
+		        	
+	     // print_r($_POST['myform']);
+				  // die;
+	        		$manager->insert($_POST['myform']);
+	        		$this->redirectToRoute('index');
+	        	}
+	        	$this->show('default/proposer', ['errors' => $errors, 'form' => $form]);
+	        }
+	         $this->show('default/proposer'); 
+	    }
+	    
+	    $this->show('user/connexion'); 
+
     }
 
 
@@ -183,9 +195,10 @@ public function rechercherColis() {
 			
  				// debug($_POST['myform']);
 
-				if($validated_data === false) {
+				if($validated_data === false and empty($_SESSION)) {
 					$errors = $gump->get_errors_array();
 					$form = $_POST['myform'];
+					$this->show('user/connexion');
 
 					} 
 
@@ -204,6 +217,9 @@ public function rechercherColis() {
 						foreach ($liste_colis as $colis) {
 							if($_POST['myform']['ville_depart']  == $colis['ville_depart']){
 						$colisOK[] = $colis;
+				}
+						elseif($_POST['myform']['ville_arrivee'] == $trajet['ville_arrivee']) {
+					$trajetOK[]=$trajet;
 				}
 			}
 
@@ -264,10 +280,10 @@ public function rechercherTrajet() {
 
 
 			
-			if($validated_data === false) {
-				$errors = $gump->get_errors_array();
-				$form = $_POST['myform'];
-
+			if($validated_data === false and empty($_SESSION)) {
+					$errors = $gump->get_errors_array();
+					$form = $_POST['myform'];
+					$this->show('user/connexion');
 			}
 			else {
 			$manager_trajet = new TrajetManager();
@@ -284,6 +300,10 @@ public function rechercherTrajet() {
 			foreach ($liste_trajets as $trajet) {
 				if($_POST['myform']['ville_depart']  == $trajet['ville_depart']){
 					$trajetOK[] = $trajet;
+				}
+
+				elseif($_POST['myform']['ville_arrivee'] == $trajet['ville_arrivee']) {
+					$trajetOK[]=$trajet;
 				}
 			}
 

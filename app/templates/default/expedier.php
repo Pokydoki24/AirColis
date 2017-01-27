@@ -3,6 +3,8 @@
 <?php $this->start('main_content') ?>
 <div class="sixteen wide column">
 
+<h1>Proposer un colis</h1>
+
 <form class="ui form" method="POST" action="" enctype="multipart/form-data">
 
   <div class="field">
@@ -64,7 +66,7 @@
   </div>
 
 
- <button class="ui button" name="valider" type="submit">Valider</button>
+ <button class="ui green button" name="valider" type="submit">Valider</button>
 
  <div class="ui error message"></div>
 

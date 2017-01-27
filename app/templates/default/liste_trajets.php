@@ -1,7 +1,7 @@
 <?php $this->layout('layout_3') ?>
 
 <?php $this->start('main_content') ?>
-
+<div class="sixteen wide column">
 <!-- Filtre par recherche -->
     <h3>Rechercher un trajet pour votre colis</h3><br>
     <form class="ui form" method="POST" action="">
@@ -37,11 +37,25 @@
             <button class="ui button" name="rechercher" type="submit">Rechercher</button>
         </div>
     </form>
-<div class="sixteen wide column">
+
+
+<?php if(!empty($errors)): ?>
+<div class="erreur">
+<!-- <?php //print_r($errors) ?> -->
+
+<?php if(empty($_POST['myform']['ville_depart'])) {echo "Veuillez saisir la ville de depart <br>"  ;} ?>
+<?php if(empty($_POST['myform']['ville_arrivee'])) {echo "Veuillez saisir la ville d'arrivée <br>" ;} ?>
+<?php if(empty($_POST['myform']['date_trajet'])) {echo "Veuillez saisir une date <br>" ;} ?>
+<?php if(empty($_POST['myform']['poids'])) {echo "Veuillez saisir le poids du colis <br>" ;} ?>
+</div>
+<?php endif ?>  
+
+
+
   
 <h3>Liste de trajets</h3><br>
 
-    <div class="column">
+    <div class="ui six column grid">
 <table class="ui inverted teal selectable celled  right aligned  table">
   <thead>
     <tr>
@@ -59,7 +73,7 @@
           <input type="checkbox"> 
         </div>
       </td>
-      <?php foreach($liste_trajets as $trajet) { ?>
+      <?php foreach($trajetOK as $trajet) { ?>
       <td><?=$trajet['ville_depart']?></td>
       <td><?=$trajet['ville_arrivee']?></td>
       <td><?=$trajet['date_trajet']?></td>

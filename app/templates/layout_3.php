@@ -198,12 +198,12 @@
     <div class="ui container">
       <div class="ui stackable inverted divided equal height stackable grid">
         <div class="twelve wide column">
-          <h4 class="ui inverted header">About</h4>
+          <h4 class="ui inverted header">Copy Right Aymeric Notta</h4>
           <div class="ui inverted link list">
             <a href="#" class="item">Sitemap</a>
             <a href="#" class="item">Contact Us</a>
             <a href="#" class="item">Religious Ceremonies</a>
-            <a href="#" class="item">Gazebo Plans</a>
+            <a href="http://www.taillecabine.com/compagnies/taille-bagages-cabine.php" class="item">taille-bagages</a>
           </div>
         </div>
       </div>

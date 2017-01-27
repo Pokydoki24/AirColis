@@ -6,6 +6,10 @@ use \W\Controller\Controller;
 use \W\Manager\UserManager;
 use \W\Security\AuthentificationManager;
 use \Manager\UtilisateurManager;
+use Swift_SmtpTransport;
+use Swift_Mailer;
+use Swift_Message;
+ 
 
 
 class UserController extends Controller
@@ -29,6 +33,35 @@ class UserController extends Controller
             unset($_POST['myform']['role']);
             $_POST['myform']['user_id'] = $wuser['id'];
             $manager2->insert($_POST['myform']);
+
+             // mail
+            // Create the Transport
+            // $transport = Swift_SmtpTransport::newInstance('smtp.example.org', 25)
+            // ->setUsername('your username')
+            // ->setPassword('your password')
+            // ;
+ 
+            // pour gmail
+            // $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
+            // ->setUsername('xxxx@gmail.com')
+            // ->setPassword('xxxx');
+ 
+            // // Create the Mailer using your created Transport
+            // $mailer = Swift_Mailer::newInstance($transport);
+ 
+            // // Create a message
+            // $message = Swift_Message::newInstance('AirColis-Email de confirmation')
+            // ->setFrom(array('aymericnotta@outlook.fr' => 'Aymeric Notta'))
+            // ->setTo(array('xxxx@xxxx.xx'))
+            // ->setBody('Bonjour 
+            //     Vous venez de créer un compte sur le site de Aircolis, nous tenons tout d\'abord à vous remercier pour l\'intérêt que vous portez à nos services afin de confirmer votre inscription ,nous vous prions de cliquer
+            //     sur le lien suivant')
+            // ;
+ 
+            // Send the message
+            $result = $mailer->send($message);
+ 
+ 
             
             $this->redirectToRoute('index');
         }
