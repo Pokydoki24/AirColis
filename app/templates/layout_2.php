@@ -159,8 +159,11 @@
           <a  href="<?= $this->url('inscription'); ?>" class="ui primary button">Inscription</a>
         </div>
         <div class="item">
-          <a href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
+        <?php if(!isset($_SESSION['user'])):?>
+          <a class="item" href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
+        <?php else:?>
           <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
+        <?php endif ?>
         </div>
       </div>
     </div>
@@ -175,8 +178,11 @@
    <a href="<?= $this->url('liste_colis'); ?>" class="item">Liste des colis</a>
    <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
    <a href="<?= $this->url('inscription'); ?>" class="item">Inscription</a>
-   <a href="<?= $this->url('connexion'); ?>" class="item">Connexion</a>
-   <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
+   <?php if(!isset($_SESSION['user'])):?>
+          <a class="item" href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
+        <?php else:?>
+          <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
+        <?php endif ?>
    
  </div>
 
@@ -198,8 +204,11 @@
         <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
         <div class="right item">
            <a href="<?= $this->url('inscription'); ?>" class="item">Inscription</a>
-           <a href="<?= $this->url('connexion'); ?>" class="item">Connexion</a>
-           <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
+           <?php if(!isset($_SESSION['user'])):?>
+          <a class="item" href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
+        <?php else:?>
+          <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
+        <?php endif ?>
         </div>
       </div>
     </div>
@@ -209,8 +218,8 @@
         Livraisons entre particuliers par avion
       </h1>
       <h2>Vous avez un colis à expédier ou un voyage à rentabiliser ?</h2>
-      <div class="ui huge primary button">Expédier un colis<i class="right arrow icon"></i></div>
-      <div class="ui huge primary button">Proposer un trajet<i class="right arrow icon"></i></div>
+      <a href="<?= $this->url('expedier'); ?>" class="ui huge primary button">Expédier un colis</a>
+       <a href="<?= $this->url('proposer'); ?>" class="ui huge primary button">Proposer un trajet</a>
     </div>
 
   </div>

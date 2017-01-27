@@ -27,29 +27,19 @@ class DefaultController extends Controller{
 			
 			$gump = new GUMP();
 
-			// if(isset($_FILES['myform']['name']['photo'])){
-			// 	$uploads_dir = 'public/uploads';
-			// 	// if ($_FILES['myform']['error']['photo'] == UPLOAD_ERR_OK) {
-			// 	// 	$tmp_name = $_FILES['myform']["tmp_name"]['photo'];
-			// 	// 	$name = time() . "_" . $_FILES['myform']['name']["photo"];
-			// 	// 	$_POST['myform']['photo'] = $name;
-			// 	// 	move_uploaded_file($tmp_name, "$uploads_dir/$name");
-			// 	// }
-			// }
-
 
 			$_POST['myform'] = $gump->sanitize($_POST['myform']); // You don't have to sanitize, but it's safest to do so.
-			
+
 			$gump->validation_rules(array(
-				'nom'    			=> 'required|min_len,5',
+				'nom'    			=> 'required|min_len,2',
 				'description'  		=> 'max_len,150',
 				'ville_depart' 		=> 'required',
 				'ville_arrivee'		=> 'required',
-				'date_livraison'	=> 'required|date',
+				'date_livraison'	=> 'required',
 				'poids'				=> 'required',
 				'prix'    			=> 'required|integer',
 				'email'				=> 'required|max_len,200|valid_email'
-				// 'photo' 			=> 'required_file|extension,png;jpg'
+				
 				));
 
 			$gump->filter_rules(array(
@@ -61,12 +51,11 @@ class DefaultController extends Controller{
 				'poids'    			=> 'trim|sanitize_string',
 				'prix'    			=> 'trim|whole_number',
 				'email' 			=> 'trim|sanitize_string'
-				// 'photo'    		=> 'trim|sanitize_string'
+				
 				));
 
 			$validated_data = $gump->run($_POST['myform']);	
-			// print_r($validated_data); // validation successful
-
+			
 
 			if($validated_data === false){
 				$errors = $gump->get_errors_array();
@@ -75,9 +64,14 @@ class DefaultController extends Controller{
 			else { //Utilisateur connecte
 
 				$manager = new ColisManager();
+				
 				$_POST['myform']['date_livraison'] = date('Y-m-d', strtotime($_POST['myform']['date_livraison']));
-				$_POST['myform']['Utilisateur_id'] = 1;
+
+				$_POST['myform']['Utilisateur_id'] =$_SESSION['user']['id']; 
+				 // print_r($_POST['myform']);
+			  // die;
 				$manager->setTable('colis');
+				
 				$manager->insert($_POST['myform']);
 				$this->redirectToRoute('index');
 				// $this->redirectToRoute('expedier?ConfirmationExpedier'); //redirection vers page ConfirmationExpedier depuis la page expedier
@@ -98,9 +92,11 @@ class DefaultController extends Controller{
 		$form = [];
 
 		if(isset($_POST['valider'])) { // traitement
-			
+			 
 			$gump = new GUMP();
 			$_POST['myform'] = $gump->sanitize($_POST['myform']);
+
+			
 
 			$gump->validation_rules(array(
 
@@ -134,8 +130,10 @@ class DefaultController extends Controller{
 	        	$manager = new TrajetManager();
 
 	        	$_POST['myform']['date_trajet'] = date('Y-m-d', strtotime($_POST['myform']['date_trajet']));
-	        	$_POST['myform']['utilisateur_id'] = 1;
-    	    	$manager->setTable('trajets');
+	        	$_POST['myform']['utilisateur_id'] = $_SESSION['user']['id'];
+	        	
+     // print_r($_POST['myform']);
+			  // die;
         		$manager->insert($_POST['myform']);
         		$this->redirectToRoute('index');
         	}
@@ -144,11 +142,164 @@ class DefaultController extends Controller{
         $this->show('default/proposer', ['errors' => $errors, 'form' => $form]);      		 
     }
 
-public function listeColis() {
-	$this->show('default/liste_colis');
+
+
+
+public function rechercherColis() {
+
+	$errors = [];
+		$form = [];
+
+		if(isset($_POST['rechercher'])){
+
+			// debug($_POST);
+
+
+			$gump = new GUMP();
+
+
+			$_POST['myform'] = $gump->sanitize($_POST['myform']); // You don't have to sanitize, but it's safest to do so.
+
+				$gump->validation_rules(array(
+		
+				
+				'ville_depart' 		=> 'required',
+				'ville_arrivee'		=> 'required',
+				'date_livraison'	=> 'required',
+				'poids'				=> 'required',
+				
+				));
+
+				$gump->filter_rules(array(
+
+				'date_livraison' 		=> 'trim',
+				'ville_depart'      => 'trim|sanitize_string',
+				'ville_arrivee'     => 'trim|sanitize_string',
+				'poids'      		=> 'trim|sanitize_string',
+				
+				));
+
+				$validated_data = $gump->run($_POST['myform']); 
+			
+ 				// debug($_POST['myform']);
+
+				if($validated_data === false) {
+					$errors = $gump->get_errors_array();
+					$form = $_POST['myform'];
+
+					} 
+
+					else {
+	        	
+					$manager_colis = new ColisManager();
+
+					$_POST['myform']['date_livraison'] = 
+					date('Y-m-d', strtotime($_POST['myform']['date_livraison']));
+	        		// $_POST['myform']['utilisateur_id'] = $_SESSION['user']['id'];
+
+
+
+						$liste_colis = $manager_colis->findAll();
+						$colisOK = [];
+						foreach ($liste_colis as $colis) {
+							if($_POST['myform']['ville_depart']  == $colis['ville_depart']){
+						$colisOK[] = $colis;
+				}
+			}
+
+		// debug($liste_colis);
+
+			$this->show('default/liste_colis',['liste_colis' => $colisOK]);
+
+				}		
+
+		$this->show('default/liste_colis', ['errors' => $errors, 'form' => $form]);
+        }
+        $this->show('default/liste_colis', ['errors' => $errors, 'form' => $form]);      		 
+    
 }
 
-public function listeTrajets() {
-	$this->show('default/liste_trajets');
+	
+
+
+
+// public function rechercher(){
+
+public function rechercherTrajet() {
+
+	$errors = [];
+		$form = [];
+
+		
+
+		if(isset($_POST['rechercher'])){
+
+
+			$gump = new GUMP();
+
+
+			$_POST['myform'] = $gump->sanitize($_POST['myform']); // You don't have to sanitize, but it's safest to do so.
+
+
+			$gump->validation_rules(array(
+		
+				
+				'ville_depart' 		=> 'required',
+				'ville_arrivee'		=> 'required',
+				'date_trajet'	=> 'required',
+				'poids'				=> 'required',
+				
+				));
+
+			$gump->filter_rules(array(
+
+				'date_trajet' 	=> 'trim',
+				'ville_depart'      => 'trim|sanitize_string',
+				'ville_arrivee'     => 'trim|sanitize_string',
+				'poids'      		=> 'trim|sanitize_string',
+				
+				));
+
+			$validated_data = $gump->run($_POST['myform']); 
+
+
+			
+			if($validated_data === false) {
+				$errors = $gump->get_errors_array();
+				$form = $_POST['myform'];
+
+			}
+			else {
+			$manager_trajet = new TrajetManager();
+			
+			$_POST['myform']['date_trajet'] =
+			date('Y-m-d', strtotime($_POST['myform']['date_trajet']));
+
+			// $_POST['myform']['utilisateur_id'] = $_SESSION['user']['id'];
+			
+
+			$liste_trajets = $manager_trajet->findAll();
+
+			$trajetOK = [];
+			foreach ($liste_trajets as $trajet) {
+				if($_POST['myform']['ville_depart']  == $trajet['ville_depart']){
+					$trajetOK[] = $trajet;
+				}
+			}
+
+		 
+
+			$this->show('default/liste_trajets',['liste_trajets' => $trajetOK]);
+			// debug($liste_trajets);
+			}
+
+			$this->show('default/liste_trajets', ['errors' => $errors, 'form' => $form]);
+    	}
+
+        $this->show('default/liste_trajets', ['errors' => $errors, 'form' => $form]);      		 
+    }
+
 }
-}
+
+
+

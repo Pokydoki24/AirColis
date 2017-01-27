@@ -3,11 +3,11 @@ namespace Manager;
 
 class TrajetManager extends \W\Manager\Manager {
           
-    public function matchpoids($villeDepart, $villeArrivee, $poids, $date, $orderBy = "", $orderDir = "ASC", $limit = null, $offset = null)
+    public function rechercherTrajet($villeDepart, $villeArrivee, $poids, $date, $orderBy = "", $orderDir = "ASC", $limit = null, $offset = null)
 	{
 
 		$sql = "SELECT * FROM " . $this->table;
-		$sql .= " WHERE poids <= colis.poids_colis AND villeDepart = colis.villeDepart AND villeArrivee = colis.villeArrivee AND date = colis.date_livraison";
+		 $sql .= " WHERE myform[poids] = colis.poids AND myform[ville_depart] = colis.villeDepart AND myform[ville_arrivee] = colis.villeArrivee AND myform[date_livraison] = colis.date_livraison";
 
 		if (!empty($orderBy)){
 

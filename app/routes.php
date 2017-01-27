@@ -6,8 +6,8 @@
 		['GET|POST', '/inscription', 'User#inscription', 'inscription'],
 		['GET|POST', '/expedier', 'Default#expedier', 'expedier'],
 		['GET|POST', '/proposer', 'Default#proposer', 'proposer'],
-		['GET', '/liste_colis', 'Default#listeColis', 'liste_colis'],
-		['GET', '/liste_trajets', 'Default#listeTrajets', 'liste_trajets'],
+		['GET|POST', '/liste_colis', 'Default#rechercherColis', 'liste_colis'],
+		['GET|POST', '/liste_trajets', 'Default#rechercherTrajet', 'liste_trajets'],
 		
 
 

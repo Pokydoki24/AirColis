@@ -129,8 +129,11 @@
           <a  href="<?= $this->url('inscription'); ?>" class="ui primary button">Inscription</a>
         </div>
         <div class="item">
-          <a href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
+          <?php if(!isset($_SESSION['user'])):?>
+          <a class="item" href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
+        <?php else:?>
           <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
+        <?php endif ?>
         </div>
       </div>
     </div>
@@ -146,8 +149,11 @@
       <a href="<?= $this->url('liste_colis'); ?>" class="item">Liste des colis</a>
       <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
       <a href="<?= $this->url('inscription'); ?>" class="item">Inscription</a>
-      <a href="<?= $this->url('connexion'); ?>" class="item">Connexion</a>
-      <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
+     <?php if(!isset($_SESSION['user'])):?>
+          <a class="item" href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
+        <?php else:?>
+          <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
+        <?php endif ?>
     </div>
 
 
@@ -168,8 +174,11 @@
             <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
             <div class="right item">
              <a href="<?= $this->url('inscription'); ?>" class="item">Inscription</a>
-             <a href="<?= $this->url('connexion'); ?>" class="item">Connexion</a>
-             <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
+            <?php if(!isset($_SESSION['user'])):?>
+          <a class="item" href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
+        <?php else:?>
+          <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
+        <?php endif ?>
             </div>
           </div>
         </div>
