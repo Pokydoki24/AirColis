@@ -48,11 +48,7 @@
 
   <div class="field">
     <label>Poids du colis</label>
-      <select  id="poids" name="myform[poids]">
-        <option value="1">Moins de 5 kilos</option>
-        <option value="2">Entre 5 et 10 kilos </option>
-        <option value="3">Plus de 10 kilos</option>
-      </select>
+      <input class="prompt" type="text" name="myform[poids]">
   </div>
 
   <div class="field">

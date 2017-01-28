@@ -59,7 +59,7 @@ class UserController extends Controller
             // ;
  
             // Send the message
-            $result = $mailer->send($message);
+            // $result = $mailer->send($message);
  
  
             

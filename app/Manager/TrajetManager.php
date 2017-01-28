@@ -3,11 +3,11 @@ namespace Manager;
 
 class TrajetManager extends \W\Manager\Manager {
           
-    public function rechercherTrajet($villeDepart, $villeArrivee, $poids, $date, $orderBy = "", $orderDir = "ASC", $limit = null, $offset = null)
+    public function rechercherTrajet($villeDepart, $villeArrivee,  $date, $orderBy = "", $orderDir = "ASC", $limit = null, $offset = null)
 	{
 
 		$sql = "SELECT * FROM " . $this->table;
-		 $sql .= " WHERE myform[poids] = colis.poids AND myform[ville_depart] = colis.villeDepart AND myform[ville_arrivee] = colis.villeArrivee AND myform[date_livraison] = colis.date_livraison";
+		 $sql .= " WHERE  myform[ville_depart] = trajets.ville_depart AND myform[ville_arrivee] = trajets.ville_arrivee AND myform[date_trajet] = trajets.date_trajet";
 
 		if (!empty($orderBy)){
 
@@ -35,10 +35,9 @@ class TrajetManager extends \W\Manager\Manager {
 			}
 		}
 		$sth = $this->dbh->prepare($sql);
-		$sth->bindValue('poids', $poids);
-		$sth->bindValue('villeDepart', $villeDepart);
-		$sth->bindValue('villeArrivee', $villeArrivee);
-		$sth->bindValue('date', $date);
+		$sth->bindValue(':ville_depart', $villeDepart);
+		$sth->bindValue(':ville_arrivee', $villeArrivee);
+		$sth->bindValue(':date_trajet', $date);
 		$sth->execute();
 
 		return $sth->fetchAll();

@@ -70,7 +70,7 @@
         <input type="password" name="myform[password]" placeholder="Password"><br>
       </div>
     </div>
-    <div class="ui submit button">
+    <div class="ui fluid large blue submit button">
       <input type="submit" name="valider" value="valider">
     </div>
   </div>

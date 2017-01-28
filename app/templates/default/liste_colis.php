@@ -65,10 +65,13 @@
       <thead>
         <tr>
           <th></th>
+          <th>nom</th>
           <th>Ville de depart</th>
           <th>Ville d'arrivee</th>
           <th>Date de livraison</th>
           <th>Poids</th>
+          <th>email</th>
+           <th>prix</th>
         </tr>
       </thead>
       <tbody>
@@ -78,11 +81,14 @@
           <input type="checkbox"> 
         </div>
       </td>
-      <?php foreach($liste_colis as $colis) { ?>
+      <?php  foreach($liste_colis as $colis) { ?>
+      <td><?=$colis['nom']?></td>
       <td><?=$colis['ville_depart']?></td>
       <td><?=$colis['ville_arrivee']?></td>
       <td><?=$colis['date_livraison']?></td>
       <td><?=$colis['poids']?>KG</td> 
+       <td><?=$colis['email']?></td>
+      <th><?=$colis['prix']?></th>
     </tr>
 
   </tbody>

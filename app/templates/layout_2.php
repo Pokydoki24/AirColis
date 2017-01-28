@@ -149,11 +149,11 @@
   <div class="ui large top fixed hidden menu">
     <div class="ui container">
       <a href="<?= $this->url('index'); ?>" class="active item">AirColis</a>
-      <a href="<?= $this->url('commentcamarche'); ?>" class="item">Comment ça marche ? </a>
-      <a href="<?= $this->url('expedier'); ?>" class="item">Expédier</a>
-      <a href="<?= $this->url('proposer'); ?>" class="item">Proposer</a>
-      <a href="<?= $this->url('liste_colis'); ?>" class="item">Liste des colis</a>
-      <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
+      <a href="<?= $this->url('commentcamarche'); ?>" class="active item">Comment ça marche ? </a>
+      <a href="<?= $this->url('expedier'); ?>" class="active item">Expédier</a>
+      <a href="<?= $this->url('proposer'); ?>" class="active item">Proposer</a>
+      <a href="<?= $this->url('liste_colis'); ?>" class="active item">Liste des colis</a>
+      <a href="<?= $this->url('liste_trajets'); ?>" class="active item">Liste des trajets</a>
       <div class="right menu">
         <div class="item">
           <a  href="<?= $this->url('inscription'); ?>" class="ui primary button">Inscription</a>
@@ -172,12 +172,12 @@
   <!-- Sidebar Menu -->
   <div class="ui vertical inverted sidebar menu">
    <a href="<?= $this->url('index'); ?>" class="active item">AirColis</a>
-   <a href="<?= $this->url('commentcamarche'); ?>" class="item">Comment ça marche ? </a>
-   <a href="<?= $this->url('expedier'); ?>" class="item">Expédier</a>
-   <a href="<?= $this->url('proposer'); ?>" class="item">Proposer</a>
-   <a href="<?= $this->url('liste_colis'); ?>" class="item">Liste des colis</a>
-   <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
-   <a href="<?= $this->url('inscription'); ?>" class="item">Inscription</a>
+   <a href="<?= $this->url('commentcamarche'); ?>" class="active item">Comment ça marche ? </a>
+   <a href="<?= $this->url('expedier'); ?>" class="active item">Expédier</a>
+   <a href="<?= $this->url('proposer'); ?>" class="active item">Proposer</a>
+   <a href="<?= $this->url('liste_colis'); ?>" class="active item">Liste des colis</a>
+   <a href="<?= $this->url('liste_trajets'); ?>" class="active item">Liste des trajets</a>
+   <a href="<?= $this->url('inscription'); ?>" class="active item">Inscription</a>
    <?php if(!isset($_SESSION['user'])):?>
           <a class="item" href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
         <?php else:?>
@@ -197,13 +197,13 @@
           <i class="sidebar icon"></i>
         </a>
         <a href="<?= $this->url('index'); ?>" class="active item">AirColis</a>
-        <a href="<?= $this->url('commentcamarche'); ?>" class="item">Comment ça marche ? </a>
-        <a href="<?= $this->url('expedier'); ?>" class="item">Expédier</a>
-        <a href="<?= $this->url('proposer'); ?>" class="item">Proposer</a>
-        <a href="<?= $this->url('liste_colis'); ?>" class="item">Liste des colis</a>
-        <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
+        <a href="<?= $this->url('commentcamarche'); ?>" class="active item">Comment ça marche ? </a>
+        <a href="<?= $this->url('expedier'); ?>" class="active item">Expédier</a>
+        <a href="<?= $this->url('proposer'); ?>" class="active item">Proposer</a>
+        <a href="<?= $this->url('liste_colis'); ?>" class="active item">Liste des colis</a>
+        <a href="<?= $this->url('liste_trajets'); ?>" class="active item">Liste des trajets</a>
         <div class="right item">
-           <a href="<?= $this->url('inscription'); ?>" class="item">Inscription</a>
+           <a href="<?= $this->url('inscription'); ?>" class="active item">Inscription</a>
            <?php if(!isset($_SESSION['user'])):?>
           <a class="item" href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
         <?php else:?>

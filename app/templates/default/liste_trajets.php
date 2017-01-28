@@ -29,10 +29,11 @@
     <input type="text" name="myform[date_trajet]" placeholder="Date">
        </div>
        </div>
+
+       <div class="field">
+        <input type="text" name="myform[poids]"  placeholder="Poids du colis">
+      </div>
  
-            <div class="field">
-            <input type="text" name="myform[poids]" placeholder="Poids du colis">
-            </div>
  
             <button class="ui button" name="rechercher" type="submit">Rechercher</button>
         </div>
@@ -46,7 +47,7 @@
 <?php if(empty($_POST['myform']['ville_depart'])) {echo "Veuillez saisir la ville de depart <br>"  ;} ?>
 <?php if(empty($_POST['myform']['ville_arrivee'])) {echo "Veuillez saisir la ville d'arrivée <br>" ;} ?>
 <?php if(empty($_POST['myform']['date_trajet'])) {echo "Veuillez saisir une date <br>" ;} ?>
-<?php if(empty($_POST['myform']['poids'])) {echo "Veuillez saisir le poids du colis <br>" ;} ?>
+<?php if(empty($_POST['myform']['poids'])) {echo "Veuillez saisir votre poids <br>" ;} ?>
 </div>
 <?php endif ?>  
 
@@ -64,6 +65,7 @@
       <th>villeArrivee</th>
       <th>dateTrajet</th>
       <th>poidsPropose</th>
+      <th>prix</th>
     </tr>
   </thead>
   <tbody>
@@ -73,12 +75,13 @@
           <input type="checkbox"> 
         </div>
       </td>
-      <?php foreach($trajetOK as $trajet) { ?>
+      <?php  foreach($liste_trajets as $trajet) { ?>
       <td><?=$trajet['ville_depart']?></td>
       <td><?=$trajet['ville_arrivee']?></td>
       <td><?=$trajet['date_trajet']?></td>
-      <td><?=$trajet['poids']?>KG</td> 
-    </tr>
+      <td><?=$trajet['poids']?>KG</td>
+      <td><?=$trajet['prix']?>E</td>
+    </tr> 
 
   </tbody>
   <th></th>   
