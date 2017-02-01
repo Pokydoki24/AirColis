@@ -56,31 +56,30 @@
   
 <h3>Liste de trajets</h3><br>
 
-    <div class="ui six column grid">
-<table class="ui inverted teal selectable celled  right aligned  table">
-  <thead>
+    <div class="column">
+<table class="ui inverted teal selectable celled  right aligned  table" style="background-color: #cecece;color:black;text-align:left;">
+
+  <!-- <thead>
     <tr>
       <th></th>
       <th>villeDepart</th>
       <th>villeArrivee</th>
       <th>dateTrajet</th>
       <th>poidsPropose</th>
-      <th>prix</th>
-    </tr>
-  </thead>
+      <th>prix</th> -->
+    <!-- </tr> -->
+  <!-- </thead> -->
   <tbody>
     <tr>
-      <td class="collapsing">
-        <div class="ui fitted slider checkbox">
-          <input type="checkbox"> 
-        </div>
-      </td>
-      <?php  foreach($liste_trajets as $trajet) { ?>
+      
+      <?php 
+      foreach($liste_trajets as $trajet) { ?>
       <td><?=$trajet['ville_depart']?></td>
       <td><?=$trajet['ville_arrivee']?></td>
       <td><?=$trajet['date_trajet']?></td>
       <td><?=$trajet['poids']?>KG</td>
       <td><?=$trajet['prix']?>E</td>
+      <td><a href="<?=$this->url('detailTrajet',['id'=>$trajet['id']]);?>">Detail</a></td>
     </tr> 
 
   </tbody>
@@ -99,6 +98,10 @@
 
       var content = [
       { title: 'ABV Abuja (Nigeria)' },
+       {title:'AAD Ad-Dabbah (Soudan)'},
+       {title:'AAE Annaba (Algérie)'},
+       {title:'AAC El-Arish International (Egypte)'},
+      {title:'AAB Arrabury(Australie)'},
       { title: 'ACC Accra (Ghana)' },
       { title: 'ADD Addis-Abeba (Ethiopie)' },
       { title: 'ALG Alger (Algerie)' },

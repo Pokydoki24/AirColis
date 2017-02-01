@@ -1,4 +1,4 @@
-<?php $this->layout('layout_2', ['title' => 'Accueil']) ?>
+<?php $this->layout('layout_2') ?>
 
 <?php $this->start('main_content') ?>
 <div class="ui inverted header background">
@@ -13,7 +13,7 @@
 <br>
 <h3>Annonces de colis à expedier</h3>
   <div class="ui six column grid">
-  <table class="ui inverted blue selectable celled right aligned  table">
+  <table class="ui inverted grey selectable celled right aligned  table">
   <thead>
     <tr>
       <th></th>
@@ -21,8 +21,7 @@
       <th>Ville de depart</th>
       <th>Ville d'arrivee</th>
       <th>Date de livraison</th>
-      <th>Poids</th>
-      <th>Prix</th>
+      <th>detail</th>
     </tr>
   </thead>
 
@@ -38,8 +37,7 @@
       <td><?=$colis['ville_depart']?></td>
       <td><?=$colis['ville_arrivee']?></td> 
       <td><?=$colis['date_livraison']?></td>
-      <td><?=$colis['poids']?>KG</td> 
-      <td><?=$colis['prix']?>E</td>  
+      <td><a href="<?=$this->url('detailColis',['id'=>$colis['id']]);?>">Detail</a></td>
     </tr>
 
   </tbody>
@@ -62,6 +60,7 @@
       <th>dateTrajet</th>
       <th>poidsPropose</th>
       <th>prixpropose</th>
+      <th>detail</th>
     </tr>
   </thead>
   <tbody>
@@ -77,6 +76,7 @@
       <td><?=$trajet['date_trajet']?></td>
       <td><?=$trajet['poids']?>KG</td> 
       <td><?=$trajet['prix']?>E</td> 
+      <td><a href="<?=$this->url('detailTrajet',['id'=>$trajet['id']]);?>">Detail</a></td>
     </tr>
 
   </tbody>

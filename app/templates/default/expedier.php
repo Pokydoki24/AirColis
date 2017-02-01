@@ -3,7 +3,7 @@
 <?php $this->start('main_content') ?>
 <div class="sixteen wide column">
 
-<h1>Proposer un colis</h1>
+<h1>Expedier un colis</h1>
 
 <form class="ui form" method="POST" action="" enctype="multipart/form-data">
 
@@ -61,6 +61,12 @@
     <input type="email" name="myform[email]" placeholder="Votre email">
   </div>
 
+  <div class="field">
+    <label>Importer une photo</label>
+    <input type="file" name="myform[photo]">
+  </div>
+
+
 
  <button class="ui green button" name="valider" type="submit">Valider</button>
 
@@ -83,6 +89,7 @@
 <?php if(empty($_POST['myform']['poids'])) {echo "Veuillez saisir le poids du colis <br>" ;} ?>
 <?php if(empty($_POST['myform']['prix'])) {echo "Veuillez saisir votre prix <br>"  ;} ?>
 <?php if(empty($_POST['myform']['email'])) {echo "Veuillez saisir votre email <br>";} ?>
+<?php if(empty($_FILE['myform']['photo'])) {echo "Veuillez saisir une photo <br>";} ?>
 </div>
 <?php endif ?>  
 
@@ -94,6 +101,10 @@
 
       var content = [
       { title: 'ABV Abuja (Nigeria)' },
+       {title:'AAD Ad-Dabbah (Soudan)'},
+       {title:'AAE Annaba (Algérie)'},
+       {title:'AAC El-Arish International (Egypte)'},
+      {title:'AAB Arrabury(Australie)'},
       { title: 'ACC Accra (Ghana)' },
       { title: 'ADD Addis-Abeba (Ethiopie)' },
       { title: 'ALG Alger (Algerie)' },
@@ -182,88 +193,6 @@
 
 <?php $this->stop('javascript') ?>
 
-<!-- <script>
 
-  $('.ui.form')
-  .form({
-    fields: {
-      nom: {
-        identifier: 'nom',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Veuillez saisir votre nom'
-          }
-        ]
-      },
-      ville_depart: {
-        identifier: 'ville_depart',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Veuillez saisir la ville de depart'
-          }
-        ]
-      },
-      ville_arrivee: {
-        identifier: 'ville_arrivee',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Veuillez saisir la ville d\'arrivée'
-          }
-        ]
-      },
-      date_livraison: {
-        identifier: 'date_livraison',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Veuillez saisir une date'
-          }
-        ]
-      },
-      poids: {
-        identifier: 'poids',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Veuillez saisir le poids du colis'
-          }
-        ]
-      },
-      prix: {
-        identifier: 'prix',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Veuillez saisir le prix'
-          }
-        ]
-      },
-      email: {
-        identifier: 'email',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Veuillez saisir votre email'
-          }
-        ]
-      },
-      : {
-        identifier: 'photo',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Veuillez selectionner une photo'
-          }
-        ]
-      }
-    }
-  })
-;
-
-
-</script> -->
 
  

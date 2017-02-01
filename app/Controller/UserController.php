@@ -9,6 +9,7 @@ use \Manager\UtilisateurManager;
 use Swift_SmtpTransport;
 use Swift_Mailer;
 use Swift_Message;
+use GUMP;
  
 
 
@@ -16,9 +17,51 @@ class UserController extends Controller
 {
 
     public function inscription(){
+
+        $errors = [];
+        $form = [];
+
         if(isset($_POST['valider'])){
-            // print_r($_POST['myform']);
-            // die;
+
+            $gump = new GUMP();
+            $_POST['myform'] = $gump->sanitize($_POST['myform']);
+
+            $gump->validation_rules(array(
+
+                    'civilite'       => 'required',
+                    'nom'            => 'required',
+                    'prenom'         => 'required',
+                    'adresse'        => 'required',
+                    'ville'          => 'required',
+                    'telephone'      => 'required',
+                    'email'          => 'required',
+                    'password'       => 'required',
+                    ''
+
+                    ));
+
+            $gump->filter_rules(array(
+
+                    'civilite'       => 'trim',
+                    'nom'            => 'trim|sanitize_string',
+                    'prenom'         => 'trim|sanitize_string',
+                    'adresse'        => 'trim|sanitize_string',
+                    'ville'          => 'trim|sanitize_string',
+                    'telephone'      => 'trim|whole_number',
+                    'email'          => 'trim|sanitize_string',
+                    'password'       => 'trim|whole_number'
+                    ));
+
+            $validated_data = $gump->run($_POST['myform']); 
+
+                if($validated_data === false) {
+                    $errors = $gump->get_errors_array();
+                    $form = $_POST['myform'];
+                    $this->show('user/inscription',['form'=>$form, 'errors'=>$errors]);
+
+                }
+                else{
+
             $_POST['myform']['password'] = password_hash($_POST['myform']['password'], PASSWORD_DEFAULT);
             $_POST['myform']['role'] = 'user';
             $manager = new UserManager();
@@ -34,35 +77,26 @@ class UserController extends Controller
             $_POST['myform']['user_id'] = $wuser['id'];
             $manager2->insert($_POST['myform']);
 
-             // mail
-            // Create the Transport
-            // $transport = Swift_SmtpTransport::newInstance('smtp.example.org', 25)
-            // ->setUsername('your username')
-            // ->setPassword('your password')
-            // ;
- 
-            // pour gmail
-            // $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
-            // ->setUsername('xxxx@gmail.com')
-            // ->setPassword('xxxx');
- 
-            // // Create the Mailer using your created Transport
-            // $mailer = Swift_Mailer::newInstance($transport);
- 
-            // // Create a message
-            // $message = Swift_Message::newInstance('AirColis-Email de confirmation')
-            // ->setFrom(array('aymericnotta@outlook.fr' => 'Aymeric Notta'))
-            // ->setTo(array('xxxx@xxxx.xx'))
-            // ->setBody('Bonjour 
-            //     Vous venez de créer un compte sur le site de Aircolis, nous tenons tout d\'abord à vous remercier pour l\'intérêt que vous portez à nos services afin de confirmer votre inscription ,nous vous prions de cliquer
-            //     sur le lien suivant')
-            // ;
- 
-            // Send the message
-            // $result = $mailer->send($message);
- 
- 
             
+            //pour gmail
+            $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
+            ->setUsername('aircolis865@gmail.com')
+            ->setPassword('gosbou75');
+ 
+            // Create the Mailer using your created Transport
+            $mailer = Swift_Mailer::newInstance($transport);
+ 
+            // Create a message
+            $message = Swift_Message::newInstance('AirColis-Email de confirmation')
+            ->setFrom(array('aircolis865@gmail.com' => 'Aymeric Notta'))
+            ->setTo(array($_POST['myform']['email']))
+            ->setBody('Bonjour, Vous venez de créer un compte sur le site de Aircolis, nous tenons tout d\'abord à vous remercier pour l\'intérêt que vous portez à nos services afin de confirmer votre inscription') ;
+ 
+            //Send the message
+            $result = $mailer->send($message);
+ 
+ 
+            }
             $this->redirectToRoute('index');
         }
         else{
@@ -95,4 +129,8 @@ class UserController extends Controller
         $auth_manager->logUserOut();
         $this->redirectToRoute('index');
     }
+
+
+    
+
 }

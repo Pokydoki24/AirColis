@@ -1,4 +1,4 @@
-<?php $this->layout('layout_3') //? (['title'=>'connexion']) ?>
+<?php $this->layout('layout_3') ?>
 
 <?php $this->start('main_content') ?>
         <H1 class="ui header">Connectez-vous à votre compte</H1>

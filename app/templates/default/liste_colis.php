@@ -53,34 +53,11 @@
 </div>
 <?php endif ?>  
 
-
-
-
-
-
-
   <h3>Liste de colis à expedier</h3>
-  <div class="ui six column grid">
-    <table class="ui inverted blue selectable celled right aligned  table">
-      <thead>
-        <tr>
-          <th></th>
-          <th>nom</th>
-          <th>Ville de depart</th>
-          <th>Ville d'arrivee</th>
-          <th>Date de livraison</th>
-          <th>Poids</th>
-          <th>email</th>
-           <th>prix</th>
-        </tr>
-      </thead>
-      <tbody>
-    <tr>
-      <td class="collapsing">
-        <div class="ui fitted slider checkbox">
-          <input type="checkbox"> 
-        </div>
-      </td>
+  <div class="column">
+  <table class="ui inverted selectable celled right aligned table" style="background-color: #cecece;color:black;text-align: left;">
+
+    <tbody>
       <?php  foreach($liste_colis as $colis) { ?>
       <td><?=$colis['nom']?></td>
       <td><?=$colis['ville_depart']?></td>
@@ -89,6 +66,7 @@
       <td><?=$colis['poids']?>KG</td> 
        <td><?=$colis['email']?></td>
       <th><?=$colis['prix']?></th>
+      <td><a href="<?=$this->url('detailColis',['id'=>$colis['id']]);?>">Detail</a></td>
     </tr>
 
   </tbody>
@@ -112,6 +90,10 @@
 
       var content = [
       { title: 'ABV Abuja (Nigeria)' },
+       {title:'AAD Ad-Dabbah (Soudan)'},
+       {title:'AAE Annaba (Algérie)'},
+      {title:'AAB Arrabury(Australie)'},
+       {title:'AAC El-Arish International (Egypte)'},
       { title: 'ACC Accra (Ghana)' },
       { title: 'ADD Addis-Abeba (Ethiopie)' },
       { title: 'ALG Alger (Algerie)' },

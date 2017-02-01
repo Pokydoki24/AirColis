@@ -118,19 +118,20 @@
   <!-- Following Menu -->
   <div class="ui large top fixed hidden menu">
     <div class="ui container">
-      <a href="<?= $this->url('index'); ?>" class="active item">AirColis</a>
-      <a href="<?= $this->url('commentcamarche'); ?>" class="active item">Comment ça marche ? </a>
-      <a href="<?= $this->url('expedier'); ?>" class="active item">Expédier</a>
-      <a href="<?= $this->url('proposer'); ?>" class="active item">Proposer</a>
-      <a href="<?= $this->url('liste_colis'); ?>" class="active item">Liste des colis</a>
-      <a href="<?= $this->url('liste_trajets'); ?>" class="active item">Liste des trajets</a>
+      <a href="<?= $this->url('index'); ?>" class="item">AirColis</a>
+      <a href="<?= $this->url('commentcamarche'); ?>" class="item">Comment ça marche ? </a>
+      <a href="<?= $this->url('expedier'); ?>" class="item"> Expédier</a>
+      <a href="<?= $this->url('proposer'); ?>" class="item">Proposer</a>
+      <a href="<?= $this->url('liste_colis'); ?>" class="item">Liste des colis</a>
+      <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
       <div class="right menu">
+         <a href="<?= $this->url('moncompte'); ?>" class="item">mon compte </a>
         <div class="item">
+        <?php if(!isset($_SESSION['user'])):?>
+          <a class="item" href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
+           <div class="item">
           <a  href="<?= $this->url('inscription'); ?>" class="ui primary button">Inscription</a>
         </div>
-        <div class="item">
-          <?php if(!isset($_SESSION['user'])):?>
-          <a class="item" href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
         <?php else:?>
           <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
         <?php endif ?>
@@ -138,52 +139,52 @@
       </div>
     </div>
   </div>
-
   <!-- Sidebar Menu -->
   <div class="ui vertical inverted sidebar menu">
-    <a href="<?= $this->url('index'); ?>" class="active item">AirColis</a>
-    <a href="<?= $this->url('commentcamarche'); ?>" 
-      class="item">Comment ça marche ? </a>
-      <a href="<?= $this->url('expedier'); ?>" class="active item">Expédier</a>
-      <a href="<?= $this->url('proposer'); ?>" class="active item">Proposer</a>
-      <a href="<?= $this->url('liste_colis'); ?>" class="active item">Liste des colis</a>
-      <a href="<?= $this->url('liste_trajets'); ?>" class="active item">Liste des trajets</a>
-      <a href="<?= $this->url('inscription'); ?>" class="active item">Inscription</a>
-     <?php if(!isset($_SESSION['user'])):?>
+   <a href="<?= $this->url('index'); ?>" class="item">AirColis</a>
+   <a href="<?= $this->url('commentcamarche'); ?>" class="item">Comment ça marche ? </a>
+   <a href="<?= $this->url('expedier'); ?>" class="item">Expédier</a>
+   <a href="<?= $this->url('proposer'); ?>" class="item">Proposer</a>
+   <a href="<?= $this->url('liste_colis'); ?>" class="item">Liste des colis</a>
+   <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
+    <a href="<?= $this->url('moncompte'); ?>" class="item">mon compte </a>
+   <?php if(!isset($_SESSION['user'])):?>
           <a class="item" href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
+     <a href="<?= $this->url('inscription'); ?>" class=" item">Inscription</a>
         <?php else:?>
           <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
         <?php endif ?>
-    </div>
-
-
+   
+ </div>
     <!-- Page Contents -->
     <div class="pusher">
-      <div class="ui vertical masthead center aligned segment">
+  <div class="ui vertical masthead center aligned segment">
 
-        <div class="ui container">
-          <div class="ui large secondary pointing menu">
-            <a class="toc item">
-            <i class="sidebar icon"></i>
-            </a>
-            <a href="<?= $this->url('index'); ?>" class="active item">AirColis</a>
-            <a href="<?= $this->url('commentcamarche'); ?>" class="active item">Comment ça marche ? </a>
-            <a href="<?= $this->url('expedier'); ?>" class="active item">Expédier</a>
-            <a href="<?= $this->url('proposer'); ?>" class="active item">Proposer</a>
-            <a href="<?= $this->url('liste_colis'); ?>" class="active item">Liste des colis</a>
-            <a href="<?= $this->url('liste_trajets'); ?>" class="active item">Liste des trajets</a>
-            <div class="right item">
-             <a href="<?= $this->url('inscription'); ?>" class="active item">Inscription</a>
-            <?php if(!isset($_SESSION['user'])):?>
+    <div class="ui container">
+      <div class="ui large secondary pointing menu">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a href="<?= $this->url('index'); ?>" class="item">AirColis</a>
+        <a href="<?= $this->url('commentcamarche'); ?>" class="item">Comment ça marche ? </a>
+        <a href="<?= $this->url('expedier'); ?>" class="item">Expédier</a>
+        <a href="<?= $this->url('proposer'); ?>" class="item">Proposer</a>
+        <a href="<?= $this->url('liste_colis'); ?>" class="item">Liste des colis</a>
+        <a href="<?= $this->url('liste_trajets'); ?>" class="item">Liste des trajets</a>
+        <div class="right item">
+            <a href="<?= $this->url('moncompte'); ?>" class="item ">mon compte </a>
+           <?php if(!isset($_SESSION['user'])):?>
           <a class="item" href="<?= $this->url('connexion'); ?>" class="ui button">Connexion</a>
+          <a href="<?= $this->url('inscription'); ?>" class=" item">Inscription</a>
         <?php else:?>
           <a href="<?= $this->url('deconnexion'); ?>" class="item">Deconnexion</a>
         <?php endif ?>
-            </div>
-          </div>
         </div>
-
       </div>
+    </div>
+
+    </div>
+
 
       <div class="ui vertical stripe segment">
         <div class="ui middle aligned stackable grid container">
@@ -197,18 +198,20 @@
   <div class="ui inverted vertical footer segment">
     <div class="ui container">
       <div class="ui stackable inverted divided equal height stackable grid">
-        <div class="twelve wide column">
-          <h4 class="ui inverted header">Copy Right Aymeric Notta</h4>
+        <div class="twelve wide column"></div>
+          <div class="ui inverted header">
           <div class="ui inverted link list">
-            <a href="#" class="item">Sitemap</a>
-            <a href="#" class="item">Contact Us</a>
-            <a href="#" class="item">Religious Ceremonies</a>
+           <a href="<?= $this->url('liste_colis'); ?>" class=" item">Liste des colis</a>
+            <a href="<?=$this->url('conditionsgenerales');?>" class="item">conditions générales</a>
+            <a href="#" class="item">Nous contacter</a>
+            <a href="#" class="item">Commentaires</a>
             <a href="http://www.taillecabine.com/compagnies/taille-bagages-cabine.php" class="item">taille-bagages</a>
           </div>
         </div>
       </div>
     </div>
   </div>
+  Copyright Aymeric Notta 2017.Tous droits réservés.
 </div>
 <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"

@@ -64,12 +64,19 @@
         </div>
       </div>
 
-     <div class="field">
+     <div class="field" >
       <div class="ui left icon input">
         <i class="lock icon"></i>
         <input type="password" name="myform[password]" placeholder="Password"><br>
       </div>
     </div>
+
+    <div class="field">
+    <div class="ui checkbox">
+      <input type="checkbox" tabindex="0">
+      <label>J'accepte les conditions generales</label>
+    </div>
+  </div>
     <div class="ui fluid large blue submit button">
       <input type="submit" name="valider" value="valider">
     </div>
@@ -77,4 +84,20 @@
 
 </form>
 
+<?php if(!empty($errors)): ?>
+<div class="erreur">
+<!-- <?php //print_r($errors) ?> -->
+
+<?php if(empty($_POST['myform']['civilite'])) {echo "Veuillez votre civilité <br>"  ;} ?>
+<?php if(empty($_POST['myform']['nom'])) {echo "Veuillez saisir votre nom <br>" ;} ?>
+<?php if(empty($_POST['myform']['prenom'])) {echo "Veuillez saisir votre prenom<br>" ;} ?>
+<?php if(empty($_POST['myform']['adresse'])) {echo "Veuillez saisir votre adresse <br>" ;} ?>
+<?php if(empty($_POST['myform']['telephone'])) {echo "Veuillez saisir votre numero de telephone <br>"  ;} ?>
+<?php if(empty($_POST['myform']['ville'])) {echo "Veuillez saisir votre ville <br>"  ;} ?>
+<?php if(empty($_POST['myform']['email'])) {echo "Veuillez saisir votre email <br>"  ;} ?>
+<?php if(empty($_POST['myform']['password'])) {echo "Veuillez saisir votre mot de passe <br>"  ;} ?>
+</div>
+<?php endif ?>  
+
 <?php $this->stop('main_content') ?>
+

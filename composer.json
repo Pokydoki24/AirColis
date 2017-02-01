@@ -10,7 +10,8 @@
         "ircmaxell/random-lib": "^1.1",
         "ircmaxell/password-compat": "^1.0",
         "league/url": "^3.3",
-        "wixel/gump": "dev-master"
+        "wixel/gump": "dev-master",
+        "swiftmailer/swiftmailer": "^5.4"
     },
     "autoload": {
         "psr-4": {
