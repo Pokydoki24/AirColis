@@ -56,11 +56,6 @@
     <input type="text" name="myform[prix]" placeholder="Estimation de votre prix en €">
   </div>
 
-   <div class="field">
-    <label>Email</label>
-    <input type="email" name="myform[email]" placeholder="Votre email">
-  </div>
-
   <div class="field">
     <label>Importer une photo</label>
     <input type="file" name="myform[photo]">
@@ -88,7 +83,6 @@
 <?php if(empty($_POST['myform']['date_livraison'])) {echo "Veuillez saisir une date <br>" ;} ?>
 <?php if(empty($_POST['myform']['poids'])) {echo "Veuillez saisir le poids du colis <br>" ;} ?>
 <?php if(empty($_POST['myform']['prix'])) {echo "Veuillez saisir votre prix <br>"  ;} ?>
-<?php if(empty($_POST['myform']['email'])) {echo "Veuillez saisir votre email <br>";} ?>
 <?php if(empty($_FILE['myform']['photo'])) {echo "Veuillez saisir une photo <br>";} ?>
 </div>
 <?php endif ?>  

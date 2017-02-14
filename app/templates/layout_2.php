@@ -148,7 +148,7 @@
   <!-- Following Menu -->
   <div class="ui large top fixed hidden menu">
     <div class="ui container">
-      <a href="<?= $this->url('index'); ?>" class="item">AirColis</a>
+      <a href="<?= $this->url('index'); ?>" class="item">AirKolis</a>
       <a href="<?= $this->url('commentcamarche'); ?>" class="item">Comment ça marche ? </a>
       <a href="<?= $this->url('expedier'); ?>" class="item"> Expédier</a>
       <a href="<?= $this->url('proposer'); ?>" class="item">Proposer</a>
@@ -172,7 +172,7 @@
 
   <!-- Sidebar Menu -->
   <div class="ui vertical inverted sidebar menu">
-   <a href="<?= $this->url('index'); ?>" class="item">AirColis</a>
+   <a href="<?= $this->url('index'); ?>" class="item">AirKolis</a>
    <a href="<?= $this->url('commentcamarche'); ?>" class="item">Comment ça marche ? </a>
    <a href="<?= $this->url('expedier'); ?>" class="item">Expédier</a>
    <a href="<?= $this->url('proposer'); ?>" class="item">Proposer</a>
@@ -198,7 +198,7 @@
         <a class="toc item">
           <i class="sidebar icon"></i>
         </a>
-        <a href="<?= $this->url('index'); ?>" class="item">AirColis</a>
+        <a href="<?= $this->url('index'); ?>" class="item">AirKolis</a>
         <a href="<?= $this->url('commentcamarche'); ?>" class="item">Comment ça marche ? </a>
         <a href="<?= $this->url('expedier'); ?>" class="item">Expédier</a>
         <a href="<?= $this->url('proposer'); ?>" class="item">Proposer</a>

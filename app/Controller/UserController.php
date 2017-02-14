@@ -90,7 +90,8 @@ class UserController extends Controller
             $message = Swift_Message::newInstance('AirColis-Email de confirmation')
             ->setFrom(array('aircolis865@gmail.com' => 'Aymeric Notta'))
             ->setTo(array($_POST['myform']['email']))
-            ->setBody('Bonjour, Vous venez de créer un compte sur le site de Aircolis, nous tenons tout d\'abord à vous remercier pour l\'intérêt que vous portez à nos services afin de confirmer votre inscription') ;
+            ->setBody('Bonjour, Vous venez de créer un compte sur le site de Aircolis, nous tenons tout d\'abord à vous remercier pour l\'intérêt que vous portez à nos services afin de confirmer votre inscription.
+                Nous vous rappelons votre identifiant : ' . $_POST['myform']['email'] .' .') ;
  
             //Send the message
             $result = $mailer->send($message);

@@ -10,6 +10,7 @@
 	      <p><?=$trajet['date_trajet']?></p>
 	      <p><?=$trajet['poids']?>Kg</p>
 	     </li>
+	     <button class="positive ui button">Demande de reservation</button>
 	</ul>
 
 <?php $this->stop('main_content') ?>

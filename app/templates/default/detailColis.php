@@ -11,6 +11,7 @@
 	      <p><?=$colis['date_livraison']?></p>
 	      <p><?=$colis['poids']?>Kg</p>
 	     </li>
+	      <button class="positive ui button">Demande de reservation</button>
 	</ul>
 
 <?php $this->stop('main_content') ?>

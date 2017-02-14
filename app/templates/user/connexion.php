@@ -25,7 +25,7 @@
         </div>
       </div>
 
-      <div class="ui fluid large blue submit button">
+      <div class="ui fluid large submit button">
         <input type="submit" name="connexion" value="Connexion">
       </div>
     </div>

@@ -58,8 +58,8 @@
       <th>villeDepart</th>
       <th>villeArrivee</th>
       <th>dateTrajet</th>
-      <th>poidsPropose</th>
-      <th>prixpropose</th>
+      <th>poidsdisponible</th>
+      <th>prix/kg</th>
       <th>detail</th>
     </tr>
   </thead>

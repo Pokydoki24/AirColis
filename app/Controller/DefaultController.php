@@ -52,7 +52,6 @@ class DefaultController extends Controller{
             	'date_livraison'    => 'required',
             	'poids'             => 'required',
             	'prix'              => 'required|integer',
-            	'email'             => 'required|max_len,200|valid_email',
             	'photo'             => 'required_file|extension,png;jpg'
 
             	));
@@ -64,8 +63,7 @@ class DefaultController extends Controller{
             	'ville_arrivee'     => 'trim|sanitize_string',
             	'date_livraison'    => 'trim',
             	'poids'             => 'trim|sanitize_string',
-            	'prix'              => 'trim|whole_number',
-            	'email'             => 'trim|sanitize_string'
+            	'prix'              => 'trim|whole_number'
 
             	));
 
@@ -95,6 +93,10 @@ class DefaultController extends Controller{
 
             	$manager->insert(array_merge($_POST['myform'], ['photo' => $name]));
 
+            	// Appel d'une fonction d'envoi automatique de mail
+            	// quand il y a correspondance entre trajet et colis.
+            	$this->alerteCorrespondance();
+
             	$this->redirectToRoute('index');
                 // $this->redirectToRoute('expedier?ConfirmationExpedier'); //redirection vers page ConfirmationExpedier depuis la page expedier
             }
@@ -104,7 +106,14 @@ class DefaultController extends Controller{
     }
     
 
+    public function alerteCorrespondance(){
 
+    	// interroger la BDD sur les correspondances possibles des trajets avec ce colis :
+
+    	// si on trouve une correspondance : appel du swift mailer pour prévenir les gens concernés
+    	echo "Envoi du mail de correspondances ...<br>";
+
+    }
 
     public function conditionsgenerales(){
 
